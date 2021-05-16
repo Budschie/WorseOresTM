@@ -76,5 +76,7 @@ public class DreamiumOre extends Block
 				}
 			}
 		}
+		
+		super.onBlockHarvested(worldIn, pos, state, player);
 	}
 }

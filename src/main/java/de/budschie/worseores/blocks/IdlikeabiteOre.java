@@ -27,10 +27,14 @@ public class IdlikeabiteOre extends Block
 		
 		if(!worldIn.isRemote && !player.isCreative())
 		{
-			player.getFoodStats().setFoodSaturationLevel(player.getFoodStats().getSaturationLevel() - 10);
-			player.getFoodStats().setFoodLevel(player.getFoodStats().getFoodLevel() - 8);
-			
-			worldIn.playSound(null, pos, SoundEvents.ENTITY_PLAYER_HURT, SoundCategory.MASTER, 1000, 0);
+			if(worldIn.isRemote)
+				player.getFoodStats().setFoodSaturationLevel(player.getFoodStats().getSaturationLevel() - 10);
+			else
+			{
+				player.getFoodStats().setFoodLevel(player.getFoodStats().getFoodLevel() - 8);
+				
+				worldIn.playSound(null, pos, SoundEvents.ENTITY_PLAYER_HURT, SoundCategory.MASTER, 1000, 0);
+			}
 		}
 	}
 }

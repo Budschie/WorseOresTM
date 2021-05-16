@@ -25,13 +25,17 @@ public class AppetiteOre extends Block
 	{
 		super.onBlockHarvested(worldIn, pos, state, player);
 		
-		if(!worldIn.isRemote && !player.isCreative())
+		if(!player.isCreative())
 		{
-			player.getFoodStats().setFoodSaturationLevel(player.getFoodStats().getSaturationLevel() + 10);
-			player.getFoodStats().setFoodLevel(player.getFoodStats().getFoodLevel() + 8);
-			
-			player.sendMessage(new StringTextComponent(TextFormatting.GREEN + "Smells like crickets, Tastes like chicken."), new UUID(0, 0));
-			worldIn.playSound(null, pos, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.MASTER, 1000, new Random(System.currentTimeMillis()).nextFloat() * 2);
+			if(worldIn.isRemote)
+				player.getFoodStats().setFoodSaturationLevel(player.getFoodStats().getSaturationLevel() + 10);
+			else
+			{
+				player.getFoodStats().setFoodLevel(player.getFoodStats().getFoodLevel() + 8);
+				
+				player.sendMessage(new StringTextComponent(TextFormatting.GREEN + "Smells like crickets, Tastes like chicken."), new UUID(0, 0));
+				worldIn.playSound(null, pos, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.MASTER, 1000, new Random(System.currentTimeMillis()).nextFloat() * 2);
+			}
 		}
 	}
 }

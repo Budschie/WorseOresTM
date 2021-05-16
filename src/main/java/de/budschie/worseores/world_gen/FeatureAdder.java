@@ -87,7 +87,7 @@ public class FeatureAdder
 				Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockRegistry.DOGECOIN_ORE.get().getDefaultState(), 5)).range(64).square().count(2));
 	
 		MOBIUM_ORE = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(References.MODID, "mobium_ore_feature"), 
-				Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockRegistry.MOBIUM_ORE.get().getDefaultState(), 10)).range(64).square().count(5).chance(20));
+				Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockRegistry.MOBIUM_ORE.get().getDefaultState(), 10)).range(32).square().count(5).chance(20));
 		
 		DREAMIUM_ORE = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(References.MODID, "dreamium_ore_feature"), 
 				Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockRegistry.DREAMIUM_ORE.get().getDefaultState(), 5)).range(64).square().count(3));
