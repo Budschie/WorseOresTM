@@ -1,0 +1,14 @@
+{
+   "block.worseores.diamond_ore": "Diamanterz",
+   "block.worseores.diamond_block": "Diamantblock",
+   "item.worseores.diamond": "Diamant",
+   "item.worseores.diamond_boots": "Diamantstiefel",
+   "item.worseores.diamond_chestplate": "Diamantharnisch",
+   "item.worseores.diamond_helmet": "Diamanthelm",
+   "item.worseores.diamond_leggings": "Diamantbeinschutz",
+   "item.worseores.diamond_axe": "Diamantaxt",
+   "item.worseores.diamond_hoe": "Diamanthacke",
+   "item.worseores.diamond_pickaxe": "Diamantspitzhacke",
+   "item.worseores.diamond_shovel": "Diamantschaufel",
+   "item.worseores.diamond_sword": "Diamantschwert"
+}

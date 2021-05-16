@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:block",
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "worseores:alotostuffium_shard",
+                    "functions":
+                    [
+                        {"function": "minecraft:set_count", "count": {"min": 1024, "max":1024}}
+                    ]
+                }
+            ]
+        }
+    ]
+}

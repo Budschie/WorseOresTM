@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:smelting",
+    "ingredient": {
+        "item": "worseores:nofite_ore"
+    },
+    "result": "worseores:nofite_ingot",
+    "experience": 5,
+    "cookingtime": 75
+}

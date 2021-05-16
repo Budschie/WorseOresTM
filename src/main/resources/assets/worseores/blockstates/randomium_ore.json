@@ -1,0 +1,18 @@
+{
+    "variants": {
+        "": [
+            {
+                "model": "worseores:block/randomium_ore"
+            },
+            {
+                "model": "worseores:block/randomium_ore", "y": 90
+            },
+            {
+                "model": "worseores:block/randomium_ore", "y": 180
+            },
+            {
+                "model": "worseores:block/randomium_ore", "y": 270
+            }
+        ]
+    }
+}

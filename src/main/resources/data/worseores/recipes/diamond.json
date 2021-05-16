@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "worseores:diamond_block"
+    }
+  ],
+  "result": {
+    "item": "worseores:diamond",
+    "count": 9
+  }
+}

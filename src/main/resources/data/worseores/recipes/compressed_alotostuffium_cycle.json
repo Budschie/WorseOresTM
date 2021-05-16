@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "worseores:compressed_alotostuffium"
+        }
+    },
+    "result": {
+        "item": "worseores:compressed_alotostuffium",
+        "count": 1
+    }
+}
