@@ -33,5 +33,6 @@
     "item.worseores.diamond_axe": "Diamond Axe",
     "item.worseores.diamond_hoe": "Diamond Hoe",
     "itemGroup.worseores.troll_ores": "Troll Ores",
-    "itemGroup.worseores.troll_items": "Troll Items"
+    "itemGroup.worseores.troll_items": "Troll Items",
+    "entity.worseores.triple_headed_sheep": "Triple Headed Sheep"
 }

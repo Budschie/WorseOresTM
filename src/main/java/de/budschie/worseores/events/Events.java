@@ -3,11 +3,13 @@ package de.budschie.worseores.events;
 import java.util.Random;
 
 import de.budschie.worseores.blocks.BlockRegistry;
+import de.budschie.worseores.entity.TripleHeadedSheepEntity;
 import de.budschie.worseores.items.ItemRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundEvents;
 import net.minecraftforge.event.TickEvent.ServerTickEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
@@ -28,6 +30,12 @@ public class Events
 			
 			if((casted.inventory.count(ItemRegistry.NOFITE_ORE.get()) > 0 || casted.inventory.count(ItemRegistry.NOFITE_INGOT.get()) > 0 || casted.inventory.count(ItemRegistry.NOFITE_SWORD.get()) > 0) && !casted.isCreative())
 				event.setCanceled(true);
+		}
+		else if(event.getSource().getTrueSource() instanceof TripleHeadedSheepEntity)
+		{
+			((TripleHeadedSheepEntity)event.getSource().getTrueSource()).playSound(SoundEvents.ENTITY_DONKEY_EAT, 1, 0.55f);
+			((TripleHeadedSheepEntity)event.getSource().getTrueSource()).playSound(SoundEvents.ENTITY_DONKEY_EAT, 1, 0.95f);
+			((TripleHeadedSheepEntity)event.getSource().getTrueSource()).playSound(SoundEvents.ENTITY_DONKEY_EAT, 1, 1.55f);
 		}
 	}
 	

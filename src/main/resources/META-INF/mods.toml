@@ -29,12 +29,12 @@ displayName="Worse Ores" #mandatory
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="logo_square.png" #optional
 # A text field displayed in the mod UI
-credits="Credits to Ivorforce, diesieben07, Tripleheadedsheep and _ForgeUser8928850 for making the Bad Ores mod, from which I took many inspirations gameplay-wise." #optional
+credits="Credits to Ivorforce, Tripleheadedsheep and diesieben07 for making the Bad Ores mod, from which I took many inspirations gameplay-wise." #optional
 # A text field displayed in the mod UI
 authors="Budschie" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-This mod is a successor to the Bad Ores mod, which was made seven years ago by Ivorforce, diesieben07, Tripleheadedsheep and _ForgeUser8928850.
+This mod is a successor to the Bad Ores mod, which was made seven years ago by Ivorforce, Tripleheadedsheep and diesieben07.
 
 As this mod is one of my favourite mods, I felt that it had to be remade for the newest versions of minecraft.
 So, here I am, doing a remake of this mod.

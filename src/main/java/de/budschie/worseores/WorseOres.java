@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import de.budschie.worseores.blocks.BlockRegistry;
+import de.budschie.worseores.entity.EntityRegistry;
 import de.budschie.worseores.items.ItemRegistry;
 import de.budschie.worseores.world_gen.FeatureAdder;
 import net.minecraftforge.common.MinecraftForge;
@@ -26,6 +27,7 @@ public class WorseOres
         
         BlockRegistry.BLOCK_REGISTRY.register(FMLJavaModLoadingContext.get().getModEventBus());
         ItemRegistry.ITEM_REGISTRY.register(FMLJavaModLoadingContext.get().getModEventBus());
+        EntityRegistry.ENTITY_REGISTRY.register(FMLJavaModLoadingContext.get().getModEventBus());
         
         MinecraftForge.EVENT_BUS.register(this);
     }
