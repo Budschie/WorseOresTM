@@ -5,15 +5,15 @@ import java.util.HashMap;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.Attribute;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.attributes.ModifiableAttributeInstance;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.DamageSource;
@@ -30,33 +30,44 @@ public class TripleHeadedSheepEntity extends CreatureEntity
 		super(type, worldIn);
 	}
 	
+	private static ModifiableAttributeInstance createAttribute(Attribute attrib, double value)
+	{
+		ModifiableAttributeInstance instance = new ModifiableAttributeInstance(Attributes.MAX_HEALTH, inst -> inst.setBaseValue(value));
+		instance.setBaseValue(value);
+		
+		return instance;
+	}
+	
 	public static AttributeModifierMap setupAttributes()
 	{
 		HashMap<Attribute, ModifiableAttributeInstance> attributeMap = new HashMap<>();
 		
-		attributeMap.put(Attributes.MAX_HEALTH, new ModifiableAttributeInstance(Attributes.MAX_HEALTH, inst -> inst.setBaseValue(1)));
-		attributeMap.put(Attributes.MOVEMENT_SPEED, new ModifiableAttributeInstance(Attributes.MOVEMENT_SPEED, inst -> inst.setBaseValue(.05)));
-		attributeMap.put(Attributes.ATTACK_DAMAGE, new ModifiableAttributeInstance(Attributes.ATTACK_DAMAGE, inst -> inst.setBaseValue(2000)));
-		attributeMap.put(Attributes.FOLLOW_RANGE, new ModifiableAttributeInstance(Attributes.FOLLOW_RANGE, inst -> inst.setBaseValue(20)));
-		attributeMap.put(Attributes.ARMOR, new ModifiableAttributeInstance(Attributes.ARMOR, inst -> inst.setBaseValue(10)));
-		attributeMap.put(Attributes.ARMOR_TOUGHNESS, new ModifiableAttributeInstance(Attributes.ARMOR_TOUGHNESS, inst -> inst.setBaseValue(0)));
-		attributeMap.put(Attributes.KNOCKBACK_RESISTANCE, new ModifiableAttributeInstance(Attributes.KNOCKBACK_RESISTANCE, inst -> inst.setBaseValue(0)));
-		attributeMap.put(ForgeMod.ENTITY_GRAVITY.get(), new ModifiableAttributeInstance(ForgeMod.ENTITY_GRAVITY.get(), inst -> inst.setBaseValue(1)));
-		attributeMap.put(ForgeMod.SWIM_SPEED.get(), new ModifiableAttributeInstance(ForgeMod.SWIM_SPEED.get(), inst -> inst.setBaseValue(1)));
-		attributeMap.put(Attributes.ATTACK_KNOCKBACK, new ModifiableAttributeInstance(Attributes.ATTACK_KNOCKBACK, inst -> inst.setBaseValue(1)));
+		attributeMap.put(Attributes.MAX_HEALTH, createAttribute(Attributes.MAX_HEALTH, 40));
+        attributeMap.put(Attributes.ATTACK_DAMAGE, createAttribute(Attributes.ATTACK_DAMAGE, 10));
+        attributeMap.put(Attributes.MOVEMENT_SPEED, createAttribute(Attributes.MOVEMENT_SPEED, 0.35));
+        attributeMap.put(Attributes.FOLLOW_RANGE, createAttribute(Attributes.FOLLOW_RANGE, 20));
+        attributeMap.put(Attributes.ARMOR, createAttribute(Attributes.ARMOR, 0));
+        attributeMap.put(Attributes.ARMOR_TOUGHNESS, createAttribute(Attributes.ARMOR_TOUGHNESS, 0));
+        attributeMap.put(Attributes.KNOCKBACK_RESISTANCE, createAttribute(Attributes.KNOCKBACK_RESISTANCE, 0));
+        attributeMap.put(ForgeMod.ENTITY_GRAVITY.get(), createAttribute(ForgeMod.ENTITY_GRAVITY.get(), 1));
+        attributeMap.put(ForgeMod.SWIM_SPEED.get(), createAttribute(ForgeMod.SWIM_SPEED.get(), 3));
+        attributeMap.put(Attributes.ATTACK_KNOCKBACK, createAttribute(Attributes.ATTACK_KNOCKBACK, 1));
         
 		AttributeModifierMap modMap = new AttributeModifierMap(attributeMap);
+		
 		return modMap;
 	}
+	
+	
 
 	@Override
 	protected void registerGoals()
 	{
-		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, .4f, false));
+		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1, false));
 		this.goalSelector.addGoal(3, new LookRandomlyGoal(this));
 		this.goalSelector.addGoal(1, new SwimGoal(this));
 		
-		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, false));
+		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, LivingEntity.class, false));
 	}
 	
 	@Override
@@ -68,8 +79,6 @@ public class TripleHeadedSheepEntity extends CreatureEntity
 	@Override
 	public void playAmbientSound()
 	{
-		System.out.println(this.getAttributeValue(Attributes.ATTACK_DAMAGE));
-		
         this.playSound(getAmbientSound(), this.getSoundVolume(), this.getSoundPitch());
         this.playSound(getAmbientSound(), this.getSoundVolume(), this.getSoundPitch() + 0.3f);
         this.playSound(getAmbientSound(), this.getSoundVolume(), this.getSoundPitch() + 0.2f);

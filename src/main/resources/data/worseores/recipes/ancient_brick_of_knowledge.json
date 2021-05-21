@@ -1,0 +1,14 @@
+{
+    "type": "crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:brick"
+        },
+        {
+            "item": "minecraft:ink_sac"
+        }
+    ],
+    "result": {
+        "item": "worseores:ancient_brick_of_knowledge"
+    }
+}

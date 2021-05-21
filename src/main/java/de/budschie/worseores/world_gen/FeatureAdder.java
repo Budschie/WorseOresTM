@@ -38,6 +38,7 @@ public class FeatureAdder
 	public static ConfiguredFeature<?, ?> MOBIUM_ORE = null;
 	public static ConfiguredFeature<?, ?> DREAMIUM_ORE = null;
 	public static ConfiguredFeature<?, ?> DIAMOND_ORE = null;
+	public static ConfiguredFeature<?, ?> TRIPLITE_ORE = null;
 	
 	public static void addFeatures()
 	{
@@ -94,6 +95,9 @@ public class FeatureAdder
 		
 		DIAMOND_ORE = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(References.MODID, "diamond_ore_feature"), 
 				Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockRegistry.DIAMOND_ORE.get().getDefaultState(), 8)).range(16).square().count(3));
+		
+		TRIPLITE_ORE = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(References.MODID, "triplite_ore_feature"), 
+				Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockRegistry.TRIPLITE_ORE.get().getDefaultState(), 6)).range(64).square().count(3));
 	}
 	
 	@SubscribeEvent
@@ -119,6 +123,7 @@ public class FeatureAdder
 			event.getGeneration().withFeature(Decoration.UNDERGROUND_ORES, MOBIUM_ORE);
 			event.getGeneration().withFeature(Decoration.UNDERGROUND_ORES, DREAMIUM_ORE);
 			event.getGeneration().withFeature(Decoration.UNDERGROUND_ORES, DIAMOND_ORE);
+			event.getGeneration().withFeature(Decoration.UNDERGROUND_ORES, TRIPLITE_ORE);
 		}
 	}
 }

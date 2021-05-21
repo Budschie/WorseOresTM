@@ -1,0 +1,7 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures":
+    {
+        "layer0": "worseores:item/ancient_brick_of_knowledge"
+    }
+}

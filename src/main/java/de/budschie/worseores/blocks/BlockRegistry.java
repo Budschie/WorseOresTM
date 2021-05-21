@@ -48,4 +48,6 @@ public class BlockRegistry
 	public static final RegistryObject<Block> DREAMIUM_ORE = BLOCK_REGISTRY.register("dreamium_ore", () -> new DreamiumOre(DEFAULT_ORE_PROPERTIES));
 	public static final RegistryObject<Block> DIAMOND_ORE = BLOCK_REGISTRY.register("diamond_ore", () -> new Block(DIAMOND_PROPERTIES));
 	public static final RegistryObject<Block> DIAMOND_BLOCK = BLOCK_REGISTRY.register("diamond_block", () -> new Block(DIAMOND_BLOCK_PROPERTIES));
+	
+	public static final RegistryObject<Block> TRIPLITE_ORE = BLOCK_REGISTRY.register("triplite_ore", () -> new TripliteOre(DEFAULT_ORE_PROPERTIES));
 }

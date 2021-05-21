@@ -22,5 +22,14 @@ public class ToolTipEvents
 		{
 			event.getToolTip().add(new StringTextComponent(TextFormatting.RED + "You have to compress this item further to use this as a material."));
 		}
+		else if(event.getItemStack().getItem() == ItemRegistry.ANCIENT_BRICK_OF_KNOWLEDGE.get())
+		{
+			event.getToolTip().add(new StringTextComponent(TextFormatting.DARK_PURPLE + "Careful with this thing! It contains ancient knowledge."));
+			event.getToolTip().add(new StringTextComponent(""));
+			event.getToolTip().add(new StringTextComponent(TextFormatting.DARK_PURPLE + "And a certain \"Book Of Ums and Ites\"."));
+			event.getToolTip().add(new StringTextComponent(""));
+			event.getToolTip().add(new StringTextComponent(TextFormatting.DARK_PURPLE + "Oh damn it! You spilled water all over the brick."));
+			event.getToolTip().add(new StringTextComponent(TextFormatting.DARK_PURPLE + "Now you can't read anything except of the Book Of Ums and Ites."));
+		}
 	}
 }
