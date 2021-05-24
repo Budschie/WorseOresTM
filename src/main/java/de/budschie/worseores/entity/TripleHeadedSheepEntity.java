@@ -49,7 +49,7 @@ public class TripleHeadedSheepEntity extends CreatureEntity
         attributeMap.put(Attributes.ARMOR, createAttribute(Attributes.ARMOR, 0));
         attributeMap.put(Attributes.ARMOR_TOUGHNESS, createAttribute(Attributes.ARMOR_TOUGHNESS, 0));
         attributeMap.put(Attributes.KNOCKBACK_RESISTANCE, createAttribute(Attributes.KNOCKBACK_RESISTANCE, 0));
-        attributeMap.put(ForgeMod.ENTITY_GRAVITY.get(), createAttribute(ForgeMod.ENTITY_GRAVITY.get(), 1));
+        attributeMap.put(ForgeMod.ENTITY_GRAVITY.get(), createAttribute(ForgeMod.ENTITY_GRAVITY.get(), 0.08D));
         attributeMap.put(ForgeMod.SWIM_SPEED.get(), createAttribute(ForgeMod.SWIM_SPEED.get(), 3));
         attributeMap.put(Attributes.ATTACK_KNOCKBACK, createAttribute(Attributes.ATTACK_KNOCKBACK, 1));
         
