@@ -6,18 +6,17 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
-import net.minecraftforge.common.ToolType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class BlockRegistry
 {
-	public static final Properties DEFAULT_ORE_PROPERTIES = Properties.of(Material.STONE).strength(3, 10).harvestLevel(1).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().sound(SoundType.STONE);
-	public static final Properties DEFAULT_ORE_PROPERTIES_WITH_LIGHT = Properties.of(Material.STONE).strength(3, 120).harvestLevel(1).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().sound(SoundType.STONE).lightLevel(imnotinerestedintheblockstate -> 15);
-	public static final Properties DEFAULT_ORE_WITH_ANVIL_PROPERTIES = Properties.of(Material.STONE).strength(3, 120).harvestLevel(1).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().sound(SoundType.ANVIL);
-	public static final Properties FAST_SPEED_ORE_PROPERTIES = Properties.of(Material.STONE).strength(0, 0).harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().sound(SoundType.STONE);
-	public static final Properties DEFAULT_SANDORE_PROPERTIES = Properties.of(Material.SAND).strength(.5f, 10).sound(SoundType.SAND).harvestLevel(0).harvestTool(ToolType.SHOVEL);
+	public static final Properties DEFAULT_ORE_PROPERTIES = Properties.of(Material.STONE).strength(3, 10).requiresCorrectToolForDrops().sound(SoundType.STONE);
+	public static final Properties DEFAULT_ORE_PROPERTIES_WITH_LIGHT = Properties.of(Material.STONE).strength(3, 120).requiresCorrectToolForDrops().sound(SoundType.STONE).lightLevel(imnotinerestedintheblockstate -> 15);
+	public static final Properties DEFAULT_ORE_WITH_ANVIL_PROPERTIES = Properties.of(Material.STONE).strength(3, 120).requiresCorrectToolForDrops().sound(SoundType.ANVIL);
+	public static final Properties FAST_SPEED_ORE_PROPERTIES = Properties.of(Material.STONE).strength(0, 0).requiresCorrectToolForDrops().sound(SoundType.STONE);
+	public static final Properties DEFAULT_SANDORE_PROPERTIES = Properties.of(Material.SAND).strength(.5f, 10).sound(SoundType.SAND);
 	public static final Properties DIAMOND_PROPERTIES = Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F, 3.0F);
 	public static final Properties DIAMOND_BLOCK_PROPERTIES = Properties.of(Material.METAL, MaterialColor.DIAMOND).requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL);
 	
