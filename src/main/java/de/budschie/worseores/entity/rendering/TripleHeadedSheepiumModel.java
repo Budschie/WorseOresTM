@@ -5,131 +5,116 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 
 import de.budschie.worseores.entity.TripleHeadedSheepEntity;
 import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.entity.Entity;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.resources.ResourceLocation;
 
 //Made with Blockbench 3.8.4
 //Exported for Minecraft version 1.15 - 1.16
 //Paste this class into your mod and generate all required imports
 
 public class TripleHeadedSheepiumModel extends EntityModel<TripleHeadedSheepEntity> {
-	private final ModelPart bone;
-	private final ModelPart noWoolBody;
-	private final ModelPart noWoolLeg1;
-	private final ModelPart noWoolLeg3;
-	private final ModelPart noWoolLeg2;
-	private final ModelPart noWoolLeg4;
-	private final ModelPart woolBody;
-	private final ModelPart woolLeg1;
-	private final ModelPart woolLeg3;
-	private final ModelPart woolLeg2;
+	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "custom_model"), "main");
 	private final ModelPart woolLeg4;
+	private final ModelPart woolLeg3;
+	private final ModelPart headRight;
+	private final ModelPart woolLeg2;
+	private final ModelPart woolLeg1;
+	private final ModelPart noWoolBody;
+	private final ModelPart noWoolLeg4;
+	private final ModelPart bone;
+	private final ModelPart woolBody;
+	private final ModelPart noWoolLeg1;
+	private final ModelPart noWoolLeg2;
+	private final ModelPart noWoolLeg3;
 	private final ModelPart headMid;
+	private final ModelPart bb_main;
+	private final ModelPart headLeft;
 	private final ModelPart woolHeadMid;
 	private final ModelPart noWoolHeadMid;
-	private final ModelPart headRight;
-	private final ModelPart woolHeadRight;
-	private final ModelPart noWoolHeadRight;
-	private final ModelPart headLeft;
 	private final ModelPart woolHeadLeft;
 	private final ModelPart noWoolHeadLeft;
-	private final ModelPart bb_main;
+	private final ModelPart woolHeadRight;
+	private final ModelPart noWoolHeadRight;
 
-	public TripleHeadedSheepiumModel() {
-		texWidth = 64;
-		texHeight = 64;
+	public TripleHeadedSheepiumModel(ModelPart root) {
+		this.woolLeg4 = root.getChild("woolLeg4");
+		this.woolLeg3 = root.getChild("woolLeg3");
+		this.headRight = root.getChild("headRight");
+		this.woolLeg2 = root.getChild("woolLeg2");
+		this.woolLeg1 = root.getChild("woolLeg1");
+		this.noWoolBody = root.getChild("noWoolBody");
+		this.noWoolLeg4 = root.getChild("noWoolLeg4");
+		this.bone = root.getChild("bone");
+		this.woolBody = root.getChild("woolBody");
+		this.noWoolLeg1 = root.getChild("noWoolLeg1");
+		this.noWoolLeg2 = root.getChild("noWoolLeg2");
+		this.noWoolLeg3 = root.getChild("noWoolLeg3");
+		this.headMid = root.getChild("headMid");
+		this.bb_main = root.getChild("bb_main");
+		this.headLeft = root.getChild("headLeft");
+		this.woolHeadMid = headMid.getChild("woolHeadMid");
+		this.noWoolHeadMid = headMid.getChild("noWoolHeadMid");
+		this.woolHeadRight = headRight.getChild("woolHeadRight");
+		this.noWoolHeadRight = headRight.getChild("noWoolHeadRight");
+		this.woolHeadLeft = headLeft.getChild("woolHeadLeft");
+		this.noWoolHeadLeft = headLeft.getChild("noWoolHeadLeft");
+	}
 
-		bone = new ModelPart(this);
-		bone.setPos(0.0F, 24.0F, 0.0F);
-		
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		noWoolBody = new ModelPart(this);
-		noWoolBody.setPos(0.0F, 5.0F, 2.0F);
-		setRotationAngle(noWoolBody, 1.5708F, 0.0F, 0.0F);
-		noWoolBody.texOffs(28, 40).addBox(-4.0F, -10.0F, -7.0F, 8.0F, 16.0F, 6.0F, 0.0F, false);
+		PartDefinition woolLeg4 = partdefinition.addOrReplaceChild("woolLeg4", CubeListBuilder.create().texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, 12.0F, -5.0F));
 
-		noWoolLeg1 = new ModelPart(this);
-		noWoolLeg1.setPos(-3.0F, 12.0F, 7.0F);
-		noWoolLeg1.texOffs(0, 48).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
+		PartDefinition woolLeg3 = partdefinition.addOrReplaceChild("woolLeg3", CubeListBuilder.create().texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 12.0F, -5.0F));
 
-		noWoolLeg3 = new ModelPart(this);
-		noWoolLeg3.setPos(-3.0F, 12.0F, -5.0F);
-		noWoolLeg3.texOffs(0, 48).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
+		PartDefinition headRight = partdefinition.addOrReplaceChild("headRight", CubeListBuilder.create(), PartPose.offset(7.0F, 25.0F, 0.0F));
 
-		noWoolLeg2 = new ModelPart(this);
-		noWoolLeg2.setPos(3.0F, 12.0F, 7.0F);
-		noWoolLeg2.texOffs(0, 48).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
+		PartDefinition woolHeadRight = headRight.addOrReplaceChild("woolHeadRight", CubeListBuilder.create().texOffs(0, 0).addBox(-3.0F, -4.0F, -4.0F, 6.0F, 6.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -18.0F, -8.0F));
 
-		noWoolLeg4 = new ModelPart(this);
-		noWoolLeg4.setPos(3.0F, 12.0F, -5.0F);
-		noWoolLeg4.texOffs(0, 48).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
+		PartDefinition noWoolHeadRight = headRight.addOrReplaceChild("noWoolHeadRight", CubeListBuilder.create().texOffs(0, 32).addBox(-3.0F, -4.0F, -6.0F, 6.0F, 6.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -18.0F, -8.0F));
 
-		woolBody = new ModelPart(this);
-		woolBody.setPos(0.0F, 5.0F, 2.0F);
-		setRotationAngle(woolBody, 1.5708F, 0.0F, 0.0F);
-		woolBody.texOffs(28, 8).addBox(-4.0F, -10.0F, -7.0F, 8.0F, 16.0F, 6.0F, 1.5F, false);
+		PartDefinition woolLeg2 = partdefinition.addOrReplaceChild("woolLeg2", CubeListBuilder.create().texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, 12.0F, 7.0F));
 
-		woolLeg1 = new ModelPart(this);
-		woolLeg1.setPos(-3.0F, 12.0F, 7.0F);
-		woolLeg1.texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.4F, false);
+		PartDefinition woolLeg1 = partdefinition.addOrReplaceChild("woolLeg1", CubeListBuilder.create().texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 12.0F, 7.0F));
 
-		woolLeg3 = new ModelPart(this);
-		woolLeg3.setPos(-3.0F, 12.0F, -5.0F);
-		woolLeg3.texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.4F, false);
+		PartDefinition noWoolBody = partdefinition.addOrReplaceChild("noWoolBody", CubeListBuilder.create().texOffs(28, 40).addBox(-4.0F, -10.0F, -7.0F, 8.0F, 16.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 5.0F, 2.0F, 1.5708F, 0.0F, 0.0F));
 
-		woolLeg2 = new ModelPart(this);
-		woolLeg2.setPos(3.0F, 12.0F, 7.0F);
-		woolLeg2.texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.4F, false);
+		PartDefinition noWoolLeg4 = partdefinition.addOrReplaceChild("noWoolLeg4", CubeListBuilder.create().texOffs(0, 48).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, 12.0F, -5.0F));
 
-		woolLeg4 = new ModelPart(this);
-		woolLeg4.setPos(3.0F, 12.0F, -5.0F);
-		woolLeg4.texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.4F, false);
+		PartDefinition bone = partdefinition.addOrReplaceChild("bone", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
 
-		headMid = new ModelPart(this);
-		headMid.setPos(0.0F, 24.0F, 0.0F);
-		
+		PartDefinition woolBody = partdefinition.addOrReplaceChild("woolBody", CubeListBuilder.create().texOffs(28, 8).addBox(-4.0F, -10.0F, -7.0F, 8.0F, 16.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 5.0F, 2.0F, 1.5708F, 0.0F, 0.0F));
 
-		woolHeadMid = new ModelPart(this);
-		woolHeadMid.setPos(0.0F, -18.0F, -8.0F);
-		headMid.addChild(woolHeadMid);
-		woolHeadMid.texOffs(0, 0).addBox(-3.0F, -4.0F, -4.0F, 6.0F, 6.0F, 6.0F, 0.5F, false);
+		PartDefinition noWoolLeg1 = partdefinition.addOrReplaceChild("noWoolLeg1", CubeListBuilder.create().texOffs(0, 48).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 12.0F, 7.0F));
 
-		noWoolHeadMid = new ModelPart(this);
-		noWoolHeadMid.setPos(0.0F, -18.0F, -8.0F);
-		headMid.addChild(noWoolHeadMid);
-		noWoolHeadMid.texOffs(0, 32).addBox(-3.0F, -4.0F, -6.0F, 6.0F, 6.0F, 8.0F, 0.0F, false);
+		PartDefinition noWoolLeg2 = partdefinition.addOrReplaceChild("noWoolLeg2", CubeListBuilder.create().texOffs(0, 48).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, 12.0F, 7.0F));
 
-		headRight = new ModelPart(this);
-		headRight.setPos(-7.0F, 25.0F, 0.0F);
-		
+		PartDefinition noWoolLeg3 = partdefinition.addOrReplaceChild("noWoolLeg3", CubeListBuilder.create().texOffs(0, 48).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 12.0F, -5.0F));
 
-		woolHeadRight = new ModelPart(this);
-		woolHeadRight.setPos(0.0F, -18.0F, -8.0F);
-		headRight.addChild(woolHeadRight);
-		woolHeadRight.texOffs(0, 0).addBox(-3.0F, -4.0F, -4.0F, 6.0F, 6.0F, 6.0F, 0.5F, false);
+		PartDefinition headMid = partdefinition.addOrReplaceChild("headMid", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
 
-		noWoolHeadRight = new ModelPart(this);
-		noWoolHeadRight.setPos(0.0F, -18.0F, -8.0F);
-		headRight.addChild(noWoolHeadRight);
-		noWoolHeadRight.texOffs(0, 32).addBox(-3.0F, -4.0F, -6.0F, 6.0F, 6.0F, 8.0F, 0.0F, false);
+		PartDefinition woolHeadMid = headMid.addOrReplaceChild("woolHeadMid", CubeListBuilder.create().texOffs(0, 0).addBox(-3.0F, -4.0F, -4.0F, 6.0F, 6.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -18.0F, -8.0F));
 
-		headLeft = new ModelPart(this);
-		headLeft.setPos(7.0F, 25.0F, 0.0F);
-		
+		PartDefinition noWoolHeadMid = headMid.addOrReplaceChild("noWoolHeadMid", CubeListBuilder.create().texOffs(0, 32).addBox(-3.0F, -4.0F, -6.0F, 6.0F, 6.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -18.0F, -8.0F));
 
-		woolHeadLeft = new ModelPart(this);
-		woolHeadLeft.setPos(0.0F, -18.0F, -8.0F);
-		headLeft.addChild(woolHeadLeft);
-		woolHeadLeft.texOffs(0, 0).addBox(-3.0F, -4.0F, -4.0F, 6.0F, 6.0F, 6.0F, 0.5F, false);
+		PartDefinition bb_main = partdefinition.addOrReplaceChild("bb_main", CubeListBuilder.create().texOffs(22, 46).addBox(-8.0F, -18.0F, -6.0F, 16.0F, 4.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
 
-		noWoolHeadLeft = new ModelPart(this);
-		noWoolHeadLeft.setPos(0.0F, -18.0F, -8.0F);
-		headLeft.addChild(noWoolHeadLeft);
-		noWoolHeadLeft.texOffs(0, 32).addBox(-3.0F, -4.0F, -6.0F, 6.0F, 6.0F, 8.0F, 0.0F, false);
+		PartDefinition headLeft = partdefinition.addOrReplaceChild("headLeft", CubeListBuilder.create(), PartPose.offset(-7.0F, 25.0F, 0.0F));
 
-		bb_main = new ModelPart(this);
-		bb_main.setPos(0.0F, 24.0F, 0.0F);
-		bb_main.texOffs(22, 46).addBox(-8.0F, -18.0F, -6.0F, 16.0F, 4.0F, 4.0F, 0.0F, false);
+		PartDefinition woolHeadLeft = headLeft.addOrReplaceChild("woolHeadLeft", CubeListBuilder.create().texOffs(0, 0).addBox(-3.0F, -4.0F, -4.0F, 6.0F, 6.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -18.0F, -8.0F));
+
+		PartDefinition noWoolHeadLeft = headLeft.addOrReplaceChild("noWoolHeadLeft", CubeListBuilder.create().texOffs(0, 32).addBox(-3.0F, -4.0F, -6.0F, 6.0F, 6.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -18.0F, -8.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 
 	@Override
@@ -166,23 +151,22 @@ public class TripleHeadedSheepiumModel extends EntityModel<TripleHeadedSheepEnti
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack matrixStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha)
-	{
-		bone.render(matrixStack, buffer, packedLight, packedOverlay);
-		noWoolBody.render(matrixStack, buffer, packedLight, packedOverlay);
-		noWoolLeg1.render(matrixStack, buffer, packedLight, packedOverlay);
-		noWoolLeg3.render(matrixStack, buffer, packedLight, packedOverlay);
-		noWoolLeg2.render(matrixStack, buffer, packedLight, packedOverlay);
-		noWoolLeg4.render(matrixStack, buffer, packedLight, packedOverlay);
-		woolBody.render(matrixStack, buffer, packedLight, packedOverlay);
-		woolLeg1.render(matrixStack, buffer, packedLight, packedOverlay);
-		woolLeg3.render(matrixStack, buffer, packedLight, packedOverlay);
-		woolLeg2.render(matrixStack, buffer, packedLight, packedOverlay);
-		woolLeg4.render(matrixStack, buffer, packedLight, packedOverlay);
-		headMid.render(matrixStack, buffer, packedLight, packedOverlay);
-		headRight.render(matrixStack, buffer, packedLight, packedOverlay);
-		headLeft.render(matrixStack, buffer, packedLight, packedOverlay);
-		bb_main.render(matrixStack, buffer, packedLight, packedOverlay);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		woolLeg4.render(poseStack, buffer, packedLight, packedOverlay);
+		woolLeg3.render(poseStack, buffer, packedLight, packedOverlay);
+		headRight.render(poseStack, buffer, packedLight, packedOverlay);
+		woolLeg2.render(poseStack, buffer, packedLight, packedOverlay);
+		woolLeg1.render(poseStack, buffer, packedLight, packedOverlay);
+		noWoolBody.render(poseStack, buffer, packedLight, packedOverlay);
+		noWoolLeg4.render(poseStack, buffer, packedLight, packedOverlay);
+		bone.render(poseStack, buffer, packedLight, packedOverlay);
+		woolBody.render(poseStack, buffer, packedLight, packedOverlay);
+		noWoolLeg1.render(poseStack, buffer, packedLight, packedOverlay);
+		noWoolLeg2.render(poseStack, buffer, packedLight, packedOverlay);
+		noWoolLeg3.render(poseStack, buffer, packedLight, packedOverlay);
+		headMid.render(poseStack, buffer, packedLight, packedOverlay);
+		bb_main.render(poseStack, buffer, packedLight, packedOverlay);
+		headLeft.render(poseStack, buffer, packedLight, packedOverlay);
 	}
 
 	public void setRotationAngle(ModelPart modelRenderer, float x, float y, float z) {
