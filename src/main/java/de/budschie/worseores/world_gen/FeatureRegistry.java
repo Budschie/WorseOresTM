@@ -77,7 +77,7 @@ public class FeatureRegistry
 				Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, BlockRegistry.LITEINNITE_ORE.get().defaultBlockState(), 10));
 		
 		BESTFORGE_ORE = register(new ResourceLocation(References.MODID, "bestforge_ore_feature"), 
-				Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, BlockRegistry.BESTFORGE_ORE.get().defaultBlockState(), 6));
+				Feature.ORE, new OreConfiguration(OreFeatures.NATURAL_STONE, BlockRegistry.BESTFORGE_ORE.get().defaultBlockState(), 6));
 	
 		DOGECOIN_ORE = register(new ResourceLocation(References.MODID, "dogecoin_ore_feature"), 
 				Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, BlockRegistry.DOGECOIN_ORE.get().defaultBlockState(), 4));
