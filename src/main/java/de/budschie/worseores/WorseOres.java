@@ -6,7 +6,8 @@ import org.apache.logging.log4j.Logger;
 import de.budschie.worseores.blocks.BlockRegistry;
 import de.budschie.worseores.entity.EntityRegistry;
 import de.budschie.worseores.items.ItemRegistry;
-import de.budschie.worseores.world_gen.FeatureAdder;
+import de.budschie.worseores.world_gen.FeatureRegistry;
+import de.budschie.worseores.world_gen.PlacedFeatureRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -34,6 +35,10 @@ public class WorseOres
 
     private void setup(final FMLCommonSetupEvent event)
     {
-    	FeatureAdder.addFeatures();
+    	event.enqueueWork(() ->
+    	{
+    		FeatureRegistry.addFeatures();
+    		PlacedFeatureRegistry.addPlacedFeatures();
+    	});
     }
 }
