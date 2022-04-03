@@ -2,12 +2,14 @@ package de.budschie.worseores.events;
 
 import de.budschie.worseores.entity.EntityRegistry;
 import de.budschie.worseores.entity.rendering.TripleHeadedSheepRenderer;
+import de.budschie.worseores.entity.rendering.TripleHeadedSheepiumModel;
 import de.budschie.worseores.gui.GuideBookScreen;
 import de.budschie.worseores.items.AncientBrickOfKnowledge;
 import de.budschie.worseores.items.IGuiInterface;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -29,5 +31,11 @@ public class ClientSetup
 				Minecraft.getInstance().setScreen(new GuideBookScreen(AncientBrickOfKnowledge.GUIDE_PAGES));
 			}
 		};
+	}
+	
+	@SubscribeEvent
+	public static void onRegisteringLayers(EntityRenderersEvent.RegisterLayerDefinitions event)
+	{
+		event.registerLayerDefinition(TripleHeadedSheepRenderer.LAYER_LOCATION, TripleHeadedSheepiumModel::createBodyLayer);
 	}
 }
