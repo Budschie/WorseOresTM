@@ -13,6 +13,7 @@ import net.minecraft.world.level.levelgen.GenerationStep.Decoration;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
+import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -43,25 +44,25 @@ public class PlacedFeatureRegistry
 	
 	public static void addPlacedFeatures()
 	{
-		COPPER_FEATURE = registerRange(new ResourceLocation(References.MODID, "copper_ore"), FeatureRegistry.COPPER_FEATURE, 0, 60, 9);
-		ALOTOSTUFFIUM_FEATURE = registerRange(new ResourceLocation(References.MODID, "alotofstuffium_ore"), FeatureRegistry.ALOTOSTUFFIUM_FEATURE, 8, 60, 6);
-		AMADEUM_FEATURE = registerRange(new ResourceLocation(References.MODID, "amadeum_ore"), FeatureRegistry.AMADEUM_FEATURE, 0, 60, 7);
-		APPETITE_FEATURE = registerRange(new ResourceLocation(References.MODID, "appetite_ore"), FeatureRegistry.APPETITE_FEATURE, 40, 80, 12);
+		COPPER_FEATURE = registerRange(new ResourceLocation(References.MODID, "copper_ore"), FeatureRegistry.COPPER_FEATURE, 0, 60, 5);
+		ALOTOSTUFFIUM_FEATURE = registerRange(new ResourceLocation(References.MODID, "alotofstuffium_ore"), FeatureRegistry.ALOTOSTUFFIUM_FEATURE, 8, 60, 3);
+		AMADEUM_FEATURE = registerRange(new ResourceLocation(References.MODID, "amadeum_ore"), FeatureRegistry.AMADEUM_FEATURE, 0, 60, 4);
+		APPETITE_FEATURE = registerRange(new ResourceLocation(References.MODID, "appetite_ore"), FeatureRegistry.APPETITE_FEATURE, 40, 80, 6);
 		ENDERITE_FEATURE = registerRange(new ResourceLocation(References.MODID, "enderite_ore"), FeatureRegistry.ENDERITE_FEATURE, 0, 50, 8);
-		EXPLODEMITE_FEATURE = registerRange(new ResourceLocation(References.MODID, "explodemite_ore"), FeatureRegistry.EXPLODEMITE_FEATURE, 0, 60, 7);
-		IDLIKEABITE_FEATURE = registerRange(new ResourceLocation(References.MODID, "idlikeabite_ore"), FeatureRegistry.IDLIKEABITE_FEATURE, 0, 60, 9);
-		SMITEANDLITE_FEATURE = registerRange(new ResourceLocation(References.MODID, "smiteandlite_ore"), FeatureRegistry.SMITEANDLITE_FEATURE, 30, 60, 8);
-		NOFITE_FEATURE = registerRange(new ResourceLocation(References.MODID, "nofite_ore"), FeatureRegistry.NOFITE_FEATURE, 0, 60, 7);
-		KILLIUM_FEATURE = registerRange(new ResourceLocation(References.MODID, "killium_ore"), FeatureRegistry.KILLIUM_FEATURE, 0, 60, 8);
-		RANDOMIUM_FEATURE = registerRange(new ResourceLocation(References.MODID, "randomium_ore"), FeatureRegistry.RANDOMIUM_FEATURE, 0, 60, 10);
-		MEMENITE_ORE = registerRange(new ResourceLocation(References.MODID, "memenite_ore"), FeatureRegistry.MEMENITE_ORE, 0, 60, 6);
-		LITEINNITE_ORE = registerRange(new ResourceLocation(References.MODID, "liteinnite_ore"), FeatureRegistry.LITEINNITE_ORE, 0, 60, 8);
-		BESTFORGE_ORE = registerRange(new ResourceLocation(References.MODID, "bestforge_ore"), FeatureRegistry.BESTFORGE_ORE, -60, 60, 12);
-		DOGECOIN_ORE = registerRange(new ResourceLocation(References.MODID, "dogecoin_ore"), FeatureRegistry.DOGECOIN_ORE, 0, 48, 8);
-		MOBIUM_ORE = registerRange(new ResourceLocation(References.MODID, "mobium_ore"), FeatureRegistry.MOBIUM_ORE, 0, 20, 4);
-		DREAMIUM_ORE = registerRange(new ResourceLocation(References.MODID, "dreamium_ore"), FeatureRegistry.DREAMIUM_ORE, 0, 60, 8);
-		DIAMOND_ORE = registerRange(new ResourceLocation(References.MODID, "diamond_ore"), FeatureRegistry.DIAMOND_ORE, 0, 60, 12);
-		TRIPLITE_ORE = registerRange(new ResourceLocation(References.MODID, "triplite_ore"), FeatureRegistry.TRIPLITE_ORE, 0, 60, 8);
+		EXPLODEMITE_FEATURE = registerRange(new ResourceLocation(References.MODID, "explodemite_ore"), FeatureRegistry.EXPLODEMITE_FEATURE, 0, 60, 4);
+		IDLIKEABITE_FEATURE = registerRange(new ResourceLocation(References.MODID, "idlikeabite_ore"), FeatureRegistry.IDLIKEABITE_FEATURE, 0, 60, 5);
+		SMITEANDLITE_FEATURE = registerRange(new ResourceLocation(References.MODID, "smiteandlite_ore"), FeatureRegistry.SMITEANDLITE_FEATURE, 30, 60, 4);
+		NOFITE_FEATURE = registerRange(new ResourceLocation(References.MODID, "nofite_ore"), FeatureRegistry.NOFITE_FEATURE, 0, 60, 4);
+		KILLIUM_FEATURE = registerRange(new ResourceLocation(References.MODID, "killium_ore"), FeatureRegistry.KILLIUM_FEATURE, 0, 60, 4);
+		RANDOMIUM_FEATURE = registerRange(new ResourceLocation(References.MODID, "randomium_ore"), FeatureRegistry.RANDOMIUM_FEATURE, 0, 60, 5);
+		MEMENITE_ORE = registerRange(new ResourceLocation(References.MODID, "memenite_ore"), FeatureRegistry.MEMENITE_ORE, 0, 60, 3);
+		LITEINNITE_ORE = registerRange(new ResourceLocation(References.MODID, "liteinnite_ore"), FeatureRegistry.LITEINNITE_ORE, 0, 60, 4);
+		BESTFORGE_ORE = registerRange(new ResourceLocation(References.MODID, "bestforge_ore"), FeatureRegistry.BESTFORGE_ORE, -60, 60, 6);
+		DOGECOIN_ORE = registerRange(new ResourceLocation(References.MODID, "dogecoin_ore"), FeatureRegistry.DOGECOIN_ORE, 0, 48, 4);
+		MOBIUM_ORE = registerRange(new ResourceLocation(References.MODID, "mobium_ore"), FeatureRegistry.MOBIUM_ORE, 0, 20, 2);
+		DREAMIUM_ORE = registerRange(new ResourceLocation(References.MODID, "dreamium_ore"), FeatureRegistry.DREAMIUM_ORE, 0, 60, 4);
+		DIAMOND_ORE = registerRange(new ResourceLocation(References.MODID, "diamond_ore"), FeatureRegistry.DIAMOND_ORE, 0, 60, 6);
+		TRIPLITE_ORE = registerRange(new ResourceLocation(References.MODID, "triplite_ore"), FeatureRegistry.TRIPLITE_ORE, 0, 60, 4);
 	}
 	
 	@SubscribeEvent
@@ -93,7 +94,7 @@ public class PlacedFeatureRegistry
 	
 	private static Holder<PlacedFeature> registerRange(ResourceLocation rl, Holder<ConfiguredFeature<?, ?>> featureBase, int from, int to, int count)
 	{
-		return registerPlacedFeature(rl, new PlacedFeature(featureBase, Arrays.asList(CountPlacement.of(count), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(from + 64), VerticalAnchor.aboveBottom(to + 64)))));
+		return registerPlacedFeature(rl, new PlacedFeature(featureBase, Arrays.asList(CountPlacement.of(count), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(from + 64), VerticalAnchor.aboveBottom(to + 64)), new InSquarePlacement())));
 	}
 	
 	private static Holder<PlacedFeature> registerPlacedFeature(ResourceLocation rl, PlacedFeature feature)
