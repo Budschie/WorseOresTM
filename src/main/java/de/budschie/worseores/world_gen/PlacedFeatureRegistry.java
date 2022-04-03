@@ -93,7 +93,7 @@ public class PlacedFeatureRegistry
 	
 	private static Holder<PlacedFeature> registerRange(ResourceLocation rl, Holder<ConfiguredFeature<?, ?>> featureBase, int from, int to, int count)
 	{
-		return registerPlacedFeature(rl, new PlacedFeature(featureBase, Arrays.asList(CountPlacement.of(count), HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(from + 64), VerticalAnchor.aboveBottom(to + 64)))));
+		return registerPlacedFeature(rl, new PlacedFeature(featureBase, Arrays.asList(CountPlacement.of(count), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(from + 64), VerticalAnchor.aboveBottom(to + 64)))));
 	}
 	
 	private static Holder<PlacedFeature> registerPlacedFeature(ResourceLocation rl, PlacedFeature feature)
