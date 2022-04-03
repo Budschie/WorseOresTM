@@ -1,19 +1,18 @@
 package de.budschie.worseores.gui;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.PoseStack;
 
 import de.budschie.worseores.References;
 import de.budschie.worseores.gui.GraphicsWidget.SampleData;
-import de.budschie.worseores.items.ItemRegistry;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.AbstractGui;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextFormatting;
+import net.minecraft.client.gui.GuiComponent;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 
 public class GuideBookScreen extends Screen
 {
@@ -26,7 +25,7 @@ public class GuideBookScreen extends Screen
 	
 	public GuideBookScreen(GuideBookPage[] pages)
 	{
-		super(new StringTextComponent("Book Of Ums and Ites"));
+		super(new TextComponent("Book Of Ums and Ites"));
 		
 		this.pages = pages;
 	}
@@ -46,14 +45,14 @@ public class GuideBookScreen extends Screen
 	protected void init()
 	{
 		Minecraft mc = Minecraft.getInstance();
-		mc.getTextureManager().bindTexture(BOOK_RESOURCE_LOCATION);
-		double scale = mc.getMainWindow().getGuiScaleFactor();
+		RenderSystem.setShaderTexture(0, BOOK_RESOURCE_LOCATION);
+		double scale = mc.getWindow().getGuiScale();
 				
 		sizeWidthPage = (int) (76 * 1.3 * scale);
 		sizeHeightPage = (int) (58 * 1.3 * scale);
 		
-		centeredX = (int) (((mc.getMainWindow().getFramebufferWidth() / scale) - sizeWidthPage) / 2);
-		centeredY = (int) (((mc.getMainWindow().getFramebufferHeight() / scale) - sizeHeightPage) / 2);
+		centeredX = (int) (((mc.getWindow().getWidth() / scale) - sizeWidthPage) / 2);
+		centeredY = (int) (((mc.getWindow().getHeight() / scale) - sizeHeightPage) / 2);
 		
 		int sizeWidthButton = (int) (12 * scale);
 		int sizeHeightButton = (int) (9 * scale);
@@ -61,16 +60,16 @@ public class GuideBookScreen extends Screen
 		SampleData hover = new SampleData(4, 64 - 36, 12, 9);
 		SampleData normal = new SampleData(4, 64 - 24, 12, 9);
 		
-		this.addButton(new GraphicsWidget((int) (centeredX + 3 * scale * 1.3), (int) (centeredY + sizeHeightPage - sizeHeightButton - 3 * scale * 1.3), sizeWidthButton, sizeHeightButton, normal, hover, false, 128, 64, () -> mc.getTextureManager().bindTexture(BOOK_RESOURCE_LOCATION), () -> changePage(-1)));
-		this.addButton(new GraphicsWidget((int) (centeredX + sizeWidthPage - sizeWidthButton - 3 * scale * 1.3), (int) (centeredY + sizeHeightPage - sizeHeightButton - 3 * scale * 1.3), sizeWidthButton, sizeHeightButton, normal, hover, true, 128, 64, () -> mc.getTextureManager().bindTexture(BOOK_RESOURCE_LOCATION), () -> changePage(1)));
+		this.addWidget(new GraphicsWidget((int) (centeredX + 3 * scale * 1.3), (int) (centeredY + sizeHeightPage - sizeHeightButton - 3 * scale * 1.3), sizeWidthButton, sizeHeightButton, normal, hover, false, 128, 64, () -> RenderSystem.setShaderTexture(0, BOOK_RESOURCE_LOCATION), () -> changePage(-1)));
+		this.addWidget(new GraphicsWidget((int) (centeredX + sizeWidthPage - sizeWidthButton - 3 * scale * 1.3), (int) (centeredY + sizeHeightPage - sizeHeightButton - 3 * scale * 1.3), sizeWidthButton, sizeHeightButton, normal, hover, true, 128, 64, () -> RenderSystem.setShaderTexture(0, BOOK_RESOURCE_LOCATION), () -> changePage(1)));
 	}
 	
-	private void renderBookPage(GuideBookPage page, int x, int y, MatrixStack stack)
+	private void renderBookPage(GuideBookPage page, int x, int y, PoseStack stack)
 	{
-		double scale = Minecraft.getInstance().getMainWindow().getGuiScaleFactor();
-		Minecraft.getInstance().getItemRenderer().renderItemAndEffectIntoGUI(new ItemStack(page.getItem()), (int)(x + scale * 4), (int) (y + scale * 4));
+		double scale = Minecraft.getInstance().getWindow().getGuiScale();
+		Minecraft.getInstance().getItemRenderer().renderAndDecorateItem(new ItemStack(page.getItem()), (int)(x + scale * 4), (int) (y + scale * 4));
 		
-		drawString(stack, font, new StringTextComponent(TextFormatting.GOLD.toString() + TextFormatting.UNDERLINE + page.getTitle()), (int)(x + scale * 11), (int) (y + scale * 5), 0);
+		drawString(stack, font, new TextComponent(ChatFormatting.GOLD.toString() + ChatFormatting.UNDERLINE + page.getTitle()), (int)(x + scale * 11), (int) (y + scale * 5), 0);
 		
 //		stack.push();
 //		
@@ -79,22 +78,22 @@ public class GuideBookScreen extends Screen
 		for(int i = 0; i < page.getText().length; i++)
 		{
 			String currentLine = page.getText()[i];
-			Minecraft.getInstance().fontRenderer.drawText(stack, new StringTextComponent(TextFormatting.BLACK.toString() + currentLine), (int)(x + scale * 4), (int) (y + scale * (12 + i * 3)), 0);
+			Minecraft.getInstance().font.draw(stack, new TextComponent(ChatFormatting.BLACK.toString() + currentLine), (int)(x + scale * 4), (int) (y + scale * (12 + i * 3)), 0);
 		}
 		
 //		stack.pop();
 	}
 	
 	@Override
-	public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks)
+	public void render(PoseStack matrixStack, int mouseX, int mouseY, float partialTicks)
 	{
 		renderBackground(matrixStack);
 		
 		Minecraft mc = Minecraft.getInstance();
-		mc.getTextureManager().bindTexture(BOOK_RESOURCE_LOCATION);
+		RenderSystem.setShaderTexture(0, BOOK_RESOURCE_LOCATION);
 		
 		RenderSystem.enableBlend();
-		AbstractGui.blit(matrixStack, centeredX, centeredY, sizeWidthPage, sizeHeightPage, 26, 67, 76, 58, 128, 64);
+		GuiComponent.blit(matrixStack, centeredX, centeredY, sizeWidthPage, sizeHeightPage, 26, 67, 76, 58, 128, 64);
 		
 		//drawString(matrixStack, font, new StringTextComponent(TextFormatting.AQUA + "I like ya cut g"), 0, 0, 0);
 		//mc.getItemRenderer().renderItemAndEffectIntoGUI(new ItemStack(ItemRegistry.BESTFORGE_ORE.get()), 0, 0);
@@ -110,7 +109,7 @@ public class GuideBookScreen extends Screen
 	}
 	
 	@Override
-	public void renderBackground(MatrixStack matrixStack)
+	public void renderBackground(PoseStack matrixStack)
 	{
 		super.renderBackground(matrixStack);
 	}

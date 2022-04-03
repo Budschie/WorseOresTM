@@ -2,13 +2,15 @@ package de.budschie.worseores.blocks;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.effect.LightningBoltEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LightningBolt;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
+
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
 public class SmiteandliteOre extends Block
 {
@@ -18,9 +20,9 @@ public class SmiteandliteOre extends Block
 	}
 	
 	@Override
-	public void onBlockHarvested(World worldIn, BlockPos pos, BlockState state, PlayerEntity player)
+	public void playerWillDestroy(Level worldIn, BlockPos pos, BlockState state, Player player)
 	{
-		LightningBoltEntity entity = new LightningBoltEntity(EntityType.LIGHTNING_BOLT, worldIn);
+		LightningBolt entity = new LightningBolt(EntityType.LIGHTNING_BOLT, worldIn);
 		
 		float explosionX, explosionY, explosionZ;
 		
@@ -28,9 +30,9 @@ public class SmiteandliteOre extends Block
 		
 		if(rand.nextInt(4) == 0)
 		{
-			explosionX = (float) player.getPosX();
-			explosionY = (float) player.getPosY();
-			explosionZ = (float) player.getPosZ();
+			explosionX = (float) player.getX();
+			explosionY = (float) player.getY();
+			explosionZ = (float) player.getZ();
 		}
 		else
 		{
@@ -39,9 +41,9 @@ public class SmiteandliteOre extends Block
 			explosionZ = pos.getZ();
 		}
 		
-		entity.setPosition(explosionX, explosionY, explosionZ);
-		worldIn.addEntity(entity);
+		entity.setPos(explosionX, explosionY, explosionZ);
+		worldIn.addFreshEntity(entity);
 		
-		super.onBlockHarvested(worldIn, pos, state, player);
+		super.playerWillDestroy(worldIn, pos, state, player);
 	}
 }

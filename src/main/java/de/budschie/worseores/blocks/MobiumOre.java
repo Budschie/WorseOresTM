@@ -3,23 +3,25 @@ package de.budschie.worseores.blocks;
 import java.util.Random;
 
 import de.budschie.worseores.util.Util;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
 public class MobiumOre extends Block
 {
-	public static final SoundEvent[] SOUND_EVENTS = new SoundEvent[] { SoundEvents.ENTITY_VILLAGER_HURT,
-			SoundEvents.ENTITY_ZOMBIE_AMBIENT, SoundEvents.ENTITY_CREEPER_PRIMED, SoundEvents.ENTITY_BAT_AMBIENT,
-			SoundEvents.ENTITY_ZOMBIE_VILLAGER_AMBIENT, SoundEvents.ENTITY_SPIDER_AMBIENT, SoundEvents.ENTITY_EVOKER_PREPARE_WOLOLO, SoundEvents.ENTITY_BLAZE_AMBIENT, SoundEvents.ENTITY_CHICKEN_DEATH,
-			SoundEvents.ENTITY_CAT_AMBIENT, SoundEvents.ENTITY_FIREWORK_ROCKET_TWINKLE_FAR,
-			SoundEvents.ENTITY_PILLAGER_CELEBRATE, SoundEvents.ENTITY_PILLAGER_AMBIENT,
-			SoundEvents.ENTITY_PILLAGER_HURT, SoundEvents.EVENT_RAID_HORN };
+	public static final SoundEvent[] SOUND_EVENTS = new SoundEvent[] { SoundEvents.VILLAGER_HURT,
+			SoundEvents.ZOMBIE_AMBIENT, SoundEvents.CREEPER_PRIMED, SoundEvents.BAT_AMBIENT,
+			SoundEvents.ZOMBIE_VILLAGER_AMBIENT, SoundEvents.SPIDER_AMBIENT, SoundEvents.EVOKER_PREPARE_WOLOLO, SoundEvents.BLAZE_AMBIENT, SoundEvents.CHICKEN_DEATH,
+			SoundEvents.CAT_AMBIENT, SoundEvents.FIREWORK_ROCKET_TWINKLE_FAR,
+			SoundEvents.PILLAGER_CELEBRATE, SoundEvents.PILLAGER_AMBIENT,
+			SoundEvents.PILLAGER_HURT, SoundEvents.RAID_HORN };
 	
 	public MobiumOre(Properties properties)
 	{
@@ -27,17 +29,17 @@ public class MobiumOre extends Block
 	}
 	
 	@Override
-	public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand)
+	public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand)
 	{
 		int randVal = rand.nextInt(100);
 		
 		if(randVal < 5)
 		{			
-			worldIn.playSound(pos.getX(), pos.getY(), pos.getZ(), SOUND_EVENTS[rand.nextInt(SOUND_EVENTS.length)], SoundCategory.MASTER, 2, rand.nextFloat() + 0.5f, false);
+			worldIn.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), SOUND_EVENTS[rand.nextInt(SOUND_EVENTS.length)], SoundSource.MASTER, 2, rand.nextFloat() + 0.5f, false);
 		}
 		else if(randVal < 10)
 		{
-			worldIn.playSound(pos.getX(), pos.getY(), pos.getZ(), Util.getRandom(ForgeRegistries.SOUND_EVENTS.getValues(), rand).get(), SoundCategory.MASTER, .5f, rand.nextFloat() + 0.5f, false);
+			worldIn.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), Util.getRandom(ForgeRegistries.SOUND_EVENTS.getValues(), rand).get(), SoundSource.MASTER, .5f, rand.nextFloat() + 0.5f, false);
 		}
 	}
 }

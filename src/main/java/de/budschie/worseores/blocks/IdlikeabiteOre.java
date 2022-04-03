@@ -1,17 +1,12 @@
 package de.budschie.worseores.blocks;
 
-import java.util.Random;
-import java.util.UUID;
-
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class IdlikeabiteOre extends Block
 {
@@ -21,19 +16,19 @@ public class IdlikeabiteOre extends Block
 	}
 	
 	@Override
-	public void onBlockHarvested(World worldIn, BlockPos pos, BlockState state, PlayerEntity player)
+	public void playerWillDestroy(Level worldIn, BlockPos pos, BlockState state, Player player)
 	{
-		super.onBlockHarvested(worldIn, pos, state, player);
+		super.playerWillDestroy(worldIn, pos, state, player);
 		
-		if(!worldIn.isRemote && !player.isCreative())
+		if(!worldIn.isClientSide && !player.isCreative())
 		{
-			if(worldIn.isRemote)
-				player.getFoodStats().setFoodSaturationLevel(player.getFoodStats().getSaturationLevel() - 10);
+			if(worldIn.isClientSide)
+				player.getFoodData().setSaturation(player.getFoodData().getSaturationLevel() - 10);
 			else
 			{
-				player.getFoodStats().setFoodLevel(player.getFoodStats().getFoodLevel() - 8);
+				player.getFoodData().setFoodLevel(player.getFoodData().getFoodLevel() - 8);
 				
-				worldIn.playSound(null, pos, SoundEvents.ENTITY_PLAYER_HURT, SoundCategory.MASTER, 1000, 0);
+				worldIn.playSound(null, pos, SoundEvents.PLAYER_HURT, SoundSource.MASTER, 1000, 0);
 			}
 		}
 	}

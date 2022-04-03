@@ -1,53 +1,49 @@
 package de.budschie.worseores.items;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.world.World;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.crafting.Ingredient;
 
 public class NofiteSword extends SwordItem
 {
 
 	public NofiteSword(Properties builderIn)
 	{
-		super(new IItemTier()
+		super(new Tier()
 		{
 			@Override
-			public Ingredient getRepairMaterial()
+			public Ingredient getRepairIngredient()
 			{
-				return Ingredient.fromItems(() -> ItemRegistry.NOFITE_INGOT.get());
+				return Ingredient.of(() -> ItemRegistry.NOFITE_INGOT.get());
 			}
 			
 			@Override
-			public int getMaxUses()
+			public int getUses()
 			{
 				return 1256;
 			}
 			
 			@Override
-			public int getHarvestLevel()
+			public int getLevel()
 			{
 				return 69;
 			}
 			
 			@Override
-			public int getEnchantability()
+			public int getEnchantmentValue()
 			{
 				// ITS OVER NINETHOUSAND
 				return 9001;
 			}
 			
 			@Override
-			public float getEfficiency()
+			public float getSpeed()
 			{
 				return 10;
 			}
 			
 			@Override
-			public float getAttackDamage()
+			public float getAttackDamageBonus()
 			{
 				return 110;
 			}

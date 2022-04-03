@@ -5,12 +5,9 @@ import org.apache.logging.log4j.Logger;
 
 import de.budschie.worseores.blocks.BlockRegistry;
 import de.budschie.worseores.entity.EntityRegistry;
-import de.budschie.worseores.entity.TripleHeadedSheepEntity;
 import de.budschie.worseores.items.ItemRegistry;
 import de.budschie.worseores.world_gen.FeatureAdder;
-import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;

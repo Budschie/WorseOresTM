@@ -1,13 +1,13 @@
 package de.budschie.worseores.gui;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.PoseStack;
 
 import de.budschie.worseores.util.DrawUtils;
-import net.minecraft.client.gui.AbstractGui;
-import net.minecraft.client.gui.widget.Widget;
+import net.minecraft.client.gui.components.AbstractWidget;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
 
-public class GraphicsWidget extends Widget
+public class GraphicsWidget extends AbstractWidget
 {
 	Runnable boundTexture;
 	Runnable clicked;
@@ -34,11 +34,11 @@ public class GraphicsWidget extends Widget
 	}
 	
 	@Override
-	public void renderWidget(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks)
+	public void renderButton(PoseStack matrixStack, int mouseX, int mouseY, float partialTicks)
 	{
 		SampleData data;
 		
-		if(isHovered())
+		if(isHoveredOrFocused())
 			data = hover;
 		else
 			data = normal;
@@ -111,5 +111,10 @@ public class GraphicsWidget extends Widget
 		{
 			this.height = height;
 		}
+	}
+
+	@Override
+	public void updateNarration(NarrationElementOutput p_169152_)
+	{
 	}
 }

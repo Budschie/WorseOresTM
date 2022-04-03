@@ -8,9 +8,9 @@ import net.minecraft.world.level.Level;
 
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
-public class EnderiteOre extends Block
+public class LaggeriteOre extends Block
 {
-	public EnderiteOre(Properties properties)
+	public LaggeriteOre(Properties properties)
 	{
 		super(properties);
 	}
@@ -18,9 +18,18 @@ public class EnderiteOre extends Block
 	@Override
 	public void playerWillDestroy(Level worldIn, BlockPos pos, BlockState state, Player player)
 	{
-		if(!player.isCreative())
-			player.setPos(player.getX(), player.getY() + 128, player.getZ());
-		
 		super.playerWillDestroy(worldIn, pos, state, player);
+		
+		try
+		{
+			if(worldIn.isClientSide)
+				Thread.sleep(5000);
+		} 
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+			// We need to rethrow for proper error handling /s
+			throw new RuntimeException(e);
+		}
 	}
 }

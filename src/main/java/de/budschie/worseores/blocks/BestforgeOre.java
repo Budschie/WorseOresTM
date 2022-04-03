@@ -1,10 +1,12 @@
 package de.budschie.worseores.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
+
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
 public class BestforgeOre extends Block
 {
@@ -14,13 +16,13 @@ public class BestforgeOre extends Block
 	}
 	
 	@Override
-	public void onBlockHarvested(World worldIn, BlockPos pos, BlockState state, PlayerEntity player)
+	public void playerWillDestroy(Level worldIn, BlockPos pos, BlockState state, Player player)
 	{
-		if(worldIn.isRemote)
+		if(worldIn.isClientSide)
 		{
 			throw new IllegalArgumentException("Alt-F4");
 		}
 		
-		super.onBlockHarvested(worldIn, pos, state, player);
+		super.playerWillDestroy(worldIn, pos, state, player);
 	}
 }

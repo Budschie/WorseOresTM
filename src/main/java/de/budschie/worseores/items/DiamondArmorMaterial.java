@@ -1,41 +1,41 @@
 package de.budschie.worseores.items;
 
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 
-public class DiamondArmorMaterial implements IArmorMaterial
+public class DiamondArmorMaterial implements ArmorMaterial
 {	
 	@Override
-	public int getDurability(EquipmentSlotType slotIn)
+	public int getDurabilityForSlot(EquipmentSlot slotIn)
 	{
 		return 1200;
 	}
 
 	@Override
-	public int getDamageReductionAmount(EquipmentSlotType slotIn)
+	public int getDefenseForSlot(EquipmentSlot slotIn)
 	{
 		return 1;
 	}
 
 	@Override
-	public int getEnchantability()
+	public int getEnchantmentValue()
 	{
 		return 10000;
 	}
 
 	@Override
-	public SoundEvent getSoundEvent()
+	public SoundEvent getEquipSound()
 	{
-		return SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND;
+		return SoundEvents.ARMOR_EQUIP_DIAMOND;
 	}
 
 	@Override
-	public Ingredient getRepairMaterial()
+	public Ingredient getRepairIngredient()
 	{
-		return Ingredient.fromItems(() -> ItemRegistry.DIAMOND.get());
+		return Ingredient.of(() -> ItemRegistry.DIAMOND.get());
 	}
 
 	@Override

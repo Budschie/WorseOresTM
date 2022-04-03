@@ -2,45 +2,43 @@ package de.budschie.worseores.entity;
 
 import java.util.HashMap;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.CreatureEntity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.attributes.Attribute;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.attributes.ModifiableAttributeInstance;
-import net.minecraft.entity.ai.goal.LookRandomlyGoal;
-import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.SwimGoal;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.FloatGoal;
+import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeMod;
 
-public class TripleHeadedSheepEntity extends CreatureEntity
+public class TripleHeadedSheepEntity extends PathfinderMob
 {
-	protected TripleHeadedSheepEntity(EntityType<? extends CreatureEntity> type, World worldIn)
+	protected TripleHeadedSheepEntity(EntityType<? extends PathfinderMob> type, Level worldIn)
 	{
 		super(type, worldIn);
 	}
 	
-	private static ModifiableAttributeInstance createAttribute(Attribute attrib, double value)
+	private static AttributeInstance createAttribute(Attribute attrib, double value)
 	{
-		ModifiableAttributeInstance instance = new ModifiableAttributeInstance(Attributes.MAX_HEALTH, inst -> inst.setBaseValue(value));
+		AttributeInstance instance = new AttributeInstance(Attributes.MAX_HEALTH, inst -> inst.setBaseValue(value));
 		instance.setBaseValue(value);
 		
 		return instance;
 	}
 	
-	public static AttributeModifierMap setupAttributes()
+	public static AttributeSupplier setupAttributes()
 	{
-		HashMap<Attribute, ModifiableAttributeInstance> attributeMap = new HashMap<>();
+		HashMap<Attribute, AttributeInstance> attributeMap = new HashMap<>();
 		
 		attributeMap.put(Attributes.MAX_HEALTH, createAttribute(Attributes.MAX_HEALTH, 40));
         attributeMap.put(Attributes.ATTACK_DAMAGE, createAttribute(Attributes.ATTACK_DAMAGE, 10));
@@ -53,7 +51,7 @@ public class TripleHeadedSheepEntity extends CreatureEntity
         attributeMap.put(ForgeMod.SWIM_SPEED.get(), createAttribute(ForgeMod.SWIM_SPEED.get(), 3));
         attributeMap.put(Attributes.ATTACK_KNOCKBACK, createAttribute(Attributes.ATTACK_KNOCKBACK, 1));
         
-		AttributeModifierMap modMap = new AttributeModifierMap(attributeMap);
+		AttributeSupplier modMap = new AttributeSupplier(attributeMap);
 		
 		return modMap;
 	}
@@ -64,14 +62,14 @@ public class TripleHeadedSheepEntity extends CreatureEntity
 	protected void registerGoals()
 	{
 		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1, false));
-		this.goalSelector.addGoal(3, new LookRandomlyGoal(this));
-		this.goalSelector.addGoal(1, new SwimGoal(this));
+		this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(1, new FloatGoal(this));
 		
 		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, LivingEntity.class, false));
 	}
 	
 	@Override
-	protected float getSoundPitch()
+	public float getVoicePitch()
 	{
 		return 0.5f;
 	}
@@ -79,40 +77,40 @@ public class TripleHeadedSheepEntity extends CreatureEntity
 	@Override
 	public void playAmbientSound()
 	{
-        this.playSound(getAmbientSound(), this.getSoundVolume(), this.getSoundPitch());
-        this.playSound(getAmbientSound(), this.getSoundVolume(), this.getSoundPitch() + 0.3f);
-        this.playSound(getAmbientSound(), this.getSoundVolume(), this.getSoundPitch() + 0.2f);
+        this.playSound(getAmbientSound(), this.getSoundVolume(), this.getVoicePitch());
+        this.playSound(getAmbientSound(), this.getSoundVolume(), this.getVoicePitch() + 0.3f);
+        this.playSound(getAmbientSound(), this.getSoundVolume(), this.getVoicePitch() + 0.2f);
 	}
 	
 	@Override
 	protected void playHurtSound(DamageSource source)
 	{
-        this.playSound(getHurtSound(source), this.getSoundVolume(), this.getSoundPitch());
-        this.playSound(getHurtSound(source), this.getSoundVolume(), this.getSoundPitch() + 0.3f);
-        this.playSound(getHurtSound(source), this.getSoundVolume(), this.getSoundPitch() + 0.2f);
+        this.playSound(getHurtSound(source), this.getSoundVolume(), this.getVoicePitch());
+        this.playSound(getHurtSound(source), this.getSoundVolume(), this.getVoicePitch() + 0.3f);
+        this.playSound(getHurtSound(source), this.getSoundVolume(), this.getVoicePitch() + 0.2f);
 	}
 	
 	@Override
 	protected SoundEvent getAmbientSound()
 	{
-		return SoundEvents.ENTITY_SHEEP_AMBIENT;
+		return SoundEvents.SHEEP_AMBIENT;
 	}
 	
 	@Override
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn)
 	{
-		return SoundEvents.ENTITY_SHEEP_HURT;
+		return SoundEvents.SHEEP_HURT;
 	}
 	
 	@Override
 	protected SoundEvent getDeathSound()
 	{
-		return SoundEvents.ENTITY_SHEEP_DEATH;
+		return SoundEvents.SHEEP_DEATH;
 	}
 	
 	@Override
 	protected void playStepSound(BlockPos pos, BlockState blockIn)
 	{
-	      this.playSound(SoundEvents.ENTITY_SHEEP_STEP, 0.25F, 0.5F);
+	      this.playSound(SoundEvents.SHEEP_STEP, 0.25F, 0.5F);
 	}
 }

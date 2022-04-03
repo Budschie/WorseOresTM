@@ -1,25 +1,25 @@
 package de.budschie.worseores.blocks;
 
 import de.budschie.worseores.References;
-import net.minecraft.block.AbstractBlock.Properties;
-import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.common.ToolType;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class BlockRegistry
 {
-	public static final Properties DEFAULT_ORE_PROPERTIES = Properties.create(Material.ROCK).hardnessAndResistance(3, 10).harvestLevel(1).harvestTool(ToolType.PICKAXE).setRequiresTool().sound(SoundType.STONE);
-	public static final Properties DEFAULT_ORE_PROPERTIES_WITH_LIGHT = Properties.create(Material.ROCK).hardnessAndResistance(3, 120).harvestLevel(1).harvestTool(ToolType.PICKAXE).setRequiresTool().sound(SoundType.STONE).setLightLevel(imnotinerestedintheblockstate -> 15);
-	public static final Properties DEFAULT_ORE_WITH_ANVIL_PROPERTIES = Properties.create(Material.ROCK).hardnessAndResistance(3, 120).harvestLevel(1).harvestTool(ToolType.PICKAXE).setRequiresTool().sound(SoundType.ANVIL);
-	public static final Properties FAST_SPEED_ORE_PROPERTIES = Properties.create(Material.ROCK).hardnessAndResistance(0, 0).harvestLevel(0).harvestTool(ToolType.PICKAXE).setRequiresTool().sound(SoundType.STONE);
-	public static final Properties DEFAULT_SANDORE_PROPERTIES = Properties.create(Material.SAND).hardnessAndResistance(.5f, 10).sound(SoundType.SAND).harvestLevel(0).harvestTool(ToolType.SHOVEL);
-	public static final Properties DIAMOND_PROPERTIES = Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3.0F, 3.0F);
-	public static final Properties DIAMOND_BLOCK_PROPERTIES = Properties.create(Material.IRON, MaterialColor.DIAMOND).setRequiresTool().hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL);
+	public static final Properties DEFAULT_ORE_PROPERTIES = Properties.of(Material.STONE).strength(3, 10).harvestLevel(1).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().sound(SoundType.STONE);
+	public static final Properties DEFAULT_ORE_PROPERTIES_WITH_LIGHT = Properties.of(Material.STONE).strength(3, 120).harvestLevel(1).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().sound(SoundType.STONE).lightLevel(imnotinerestedintheblockstate -> 15);
+	public static final Properties DEFAULT_ORE_WITH_ANVIL_PROPERTIES = Properties.of(Material.STONE).strength(3, 120).harvestLevel(1).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().sound(SoundType.ANVIL);
+	public static final Properties FAST_SPEED_ORE_PROPERTIES = Properties.of(Material.STONE).strength(0, 0).harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().sound(SoundType.STONE);
+	public static final Properties DEFAULT_SANDORE_PROPERTIES = Properties.of(Material.SAND).strength(.5f, 10).sound(SoundType.SAND).harvestLevel(0).harvestTool(ToolType.SHOVEL);
+	public static final Properties DIAMOND_PROPERTIES = Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F, 3.0F);
+	public static final Properties DIAMOND_BLOCK_PROPERTIES = Properties.of(Material.METAL, MaterialColor.DIAMOND).requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL);
 	
 	public static final DeferredRegister<Block> BLOCK_REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, References.MODID);
 
