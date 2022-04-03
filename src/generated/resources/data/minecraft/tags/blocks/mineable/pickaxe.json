@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "worseores:copper_ore",
+    "worseores:compressed_alotostuffium",
+    "worseores:amadeum_ore",
+    "worseores:appetite_ore",
+    "worseores:enderite_ore",
+    "worseores:explodemite_ore",
+    "worseores:idlikeabite_ore",
+    "worseores:smiteandlite_ore",
+    "worseores:nofite_ore",
+    "worseores:killium_ore",
+    "worseores:randomium_ore",
+    "worseores:dogecoin_ore",
+    "worseores:mobium_ore",
+    "worseores:dreamium_ore",
+    "worseores:triplite_ore",
+    "worseores:liteinnite_ore",
+    "worseores:memenite_ore",
+    "worseores:bestforge_ore",
+    "worseores:diamond_ore",
+    "worseores:diamond_block"
+  ]
+}
