@@ -34,6 +34,12 @@ public class FeatureRegistry
 	public static Holder<ConfiguredFeature<?, ?>> DREAMIUM_ORE = null;
 	public static Holder<ConfiguredFeature<?, ?>> DIAMOND_ORE = null;
 	public static Holder<ConfiguredFeature<?, ?>> TRIPLITE_ORE = null;
+	public static Holder<ConfiguredFeature<?, ?>> LAGGERITE_ORE = null;
+	public static Holder<ConfiguredFeature<?, ?>> DEEPSLATE_LAGGERITE_ORE = null;
+	
+	public static Holder<ConfiguredFeature<?, ?>> DEEPSLATE_RANDOMIUM_FEATURE = null;
+	public static Holder<ConfiguredFeature<?, ?>> DEEPSLATE_ALOTOSTUFFIUM_FEATURE = null;
+	public static Holder<ConfiguredFeature<?, ?>> DEEPSLATE_KILLIUM_FEATURE = null;
 	
 	public static void addFeatures()
 	{
@@ -50,7 +56,7 @@ public class FeatureRegistry
 				Feature.ORE, new OreConfiguration(new BlockMatchTest(Blocks.SAND), BlockRegistry.APPETITE_ORE.get().defaultBlockState(), 5));
 		
 		ENDERITE_FEATURE = register(new ResourceLocation(References.MODID, "enderite_ore_feature"), 
-				Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, BlockRegistry.ENDERITE_ORE.get().defaultBlockState(), 4));
+				Feature.ORE, new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, BlockRegistry.ENDERITE_ORE.get().defaultBlockState(), 4));
 		
 		EXPLODEMITE_FEATURE = register(new ResourceLocation(References.MODID, "explodemite_ore_feature"), 
 				Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, BlockRegistry.EXPLODEMITE_ORE.get().defaultBlockState(), 7));
@@ -74,7 +80,7 @@ public class FeatureRegistry
 				Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, BlockRegistry.MEMENITE_ORE.get().defaultBlockState(), 5));
 		
 		LITEINNITE_ORE = register(new ResourceLocation(References.MODID, "liteinnite_ore_feature"), 
-				Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, BlockRegistry.LITEINNITE_ORE.get().defaultBlockState(), 10));
+				ModFeatures.FIXED_ORE_FEATURE.get(), new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, BlockRegistry.LITEINNITE_ORE.get().defaultBlockState(), 10));
 		
 		BESTFORGE_ORE = register(new ResourceLocation(References.MODID, "bestforge_ore_feature"), 
 				Feature.ORE, new OreConfiguration(OreFeatures.NATURAL_STONE, BlockRegistry.BESTFORGE_ORE.get().defaultBlockState(), 6));
@@ -83,16 +89,33 @@ public class FeatureRegistry
 				Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, BlockRegistry.DOGECOIN_ORE.get().defaultBlockState(), 4));
 	
 		MOBIUM_ORE = register(new ResourceLocation(References.MODID, "mobium_ore_feature"), 
-				Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, BlockRegistry.MOBIUM_ORE.get().defaultBlockState(), 11));
+				Feature.ORE, new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, BlockRegistry.MOBIUM_ORE.get().defaultBlockState(), 11));
 		
 		DREAMIUM_ORE = register(new ResourceLocation(References.MODID, "dreamium_ore_feature"), 
 				Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, BlockRegistry.DREAMIUM_ORE.get().defaultBlockState(), 7));
 		
 		DIAMOND_ORE = register(new ResourceLocation(References.MODID, "diamond_ore_feature"), 
-				Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, BlockRegistry.DIAMOND_ORE.get().defaultBlockState(), 8));
+				Feature.ORE, new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, BlockRegistry.DEEPSLATE_DIAMOND_ORE.get().defaultBlockState(), 8));
 		
 		TRIPLITE_ORE = register(new ResourceLocation(References.MODID, "triplite_ore_feature"), 
 				Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, BlockRegistry.TRIPLITE_ORE.get().defaultBlockState(), 9));
+		
+		
+		DEEPSLATE_KILLIUM_FEATURE = register(new ResourceLocation(References.MODID, "deepslate_killium_ore_feature"), 
+				Feature.ORE, new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, BlockRegistry.DEEPSLATE_KILLIUM_ORE.get().defaultBlockState(), 5));
+		
+		DEEPSLATE_ALOTOSTUFFIUM_FEATURE = register(new ResourceLocation(References.MODID, "deepslate_alotostuffium_ore_feature"), 
+				Feature.ORE, new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, BlockRegistry.DEEPSLATE_ALOTOSTUFFIUM_ORE.get().defaultBlockState(), 7));
+		
+		DEEPSLATE_RANDOMIUM_FEATURE = register(new ResourceLocation(References.MODID, "deepslate_randomium_ore_feature"), 
+				Feature.ORE, new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, BlockRegistry.DEEPSLATE_RANDOMIUM_ORE.get().defaultBlockState(), 3));
+		
+		LAGGERITE_ORE = register(new ResourceLocation(References.MODID, "laggerite_ore"), 
+				Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, BlockRegistry.LAGGERITE_ORE.get().defaultBlockState(), 4));
+		
+		DEEPSLATE_LAGGERITE_ORE = register(new ResourceLocation(References.MODID, "deepslate_laggerite_ore"), 
+				Feature.ORE, new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, BlockRegistry.DEEPSLATE_LAGGERITE_ORE.get().defaultBlockState(), 6));
+
 	}
 	
 	private static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<?, ?>> register(ResourceLocation rl, Feature<FC> feature, FC featureConfig)

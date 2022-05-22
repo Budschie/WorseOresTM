@@ -7,6 +7,7 @@ import de.budschie.worseores.blocks.BlockRegistry;
 import de.budschie.worseores.entity.EntityRegistry;
 import de.budschie.worseores.items.ItemRegistry;
 import de.budschie.worseores.world_gen.FeatureRegistry;
+import de.budschie.worseores.world_gen.ModFeatures;
 import de.budschie.worseores.world_gen.PlacedFeatureRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -29,6 +30,7 @@ public class WorseOres
         BlockRegistry.BLOCK_REGISTRY.register(FMLJavaModLoadingContext.get().getModEventBus());
         ItemRegistry.ITEM_REGISTRY.register(FMLJavaModLoadingContext.get().getModEventBus());
         EntityRegistry.ENTITY_REGISTRY.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ModFeatures.FEATURE_REGISTRY.register(FMLJavaModLoadingContext.get().getModEventBus());
         
         MinecraftForge.EVENT_BUS.register(this);
     }

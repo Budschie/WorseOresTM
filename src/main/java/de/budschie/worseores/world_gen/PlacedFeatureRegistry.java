@@ -41,6 +41,12 @@ public class PlacedFeatureRegistry
 	public static Holder<PlacedFeature> DREAMIUM_ORE = null;
 	public static Holder<PlacedFeature> DIAMOND_ORE = null;
 	public static Holder<PlacedFeature> TRIPLITE_ORE = null;
+	public static Holder<PlacedFeature> LAGGERITE_FEATURE = null;
+	public static Holder<PlacedFeature> DEEPSLATE_LAGGERITE_FEATURE = null;
+	
+	public static Holder<PlacedFeature> DEEPSLATE_RANDOMIUM_FEATURE = null;
+	public static Holder<PlacedFeature> DEEPSLATE_ALOTOSTUFFIUM_FEATURE = null;
+	public static Holder<PlacedFeature> DEEPSLATE_KILLIUM_FEATURE = null;
 	
 	public static void addPlacedFeatures()
 	{
@@ -48,7 +54,7 @@ public class PlacedFeatureRegistry
 		ALOTOSTUFFIUM_FEATURE = registerRange(new ResourceLocation(References.MODID, "alotofstuffium_ore"), FeatureRegistry.ALOTOSTUFFIUM_FEATURE, 8, 60, 3);
 		AMADEUM_FEATURE = registerRange(new ResourceLocation(References.MODID, "amadeum_ore"), FeatureRegistry.AMADEUM_FEATURE, 0, 60, 4);
 		APPETITE_FEATURE = registerRange(new ResourceLocation(References.MODID, "appetite_ore"), FeatureRegistry.APPETITE_FEATURE, 40, 80, 6);
-		ENDERITE_FEATURE = registerRange(new ResourceLocation(References.MODID, "enderite_ore"), FeatureRegistry.ENDERITE_FEATURE, 0, 50, 8);
+		ENDERITE_FEATURE = registerRange(new ResourceLocation(References.MODID, "enderite_ore"), FeatureRegistry.ENDERITE_FEATURE, -60, 0, 8);
 		EXPLODEMITE_FEATURE = registerRange(new ResourceLocation(References.MODID, "explodemite_ore"), FeatureRegistry.EXPLODEMITE_FEATURE, 0, 60, 4);
 		IDLIKEABITE_FEATURE = registerRange(new ResourceLocation(References.MODID, "idlikeabite_ore"), FeatureRegistry.IDLIKEABITE_FEATURE, 0, 60, 5);
 		SMITEANDLITE_FEATURE = registerRange(new ResourceLocation(References.MODID, "smiteandlite_ore"), FeatureRegistry.SMITEANDLITE_FEATURE, 30, 60, 4);
@@ -56,13 +62,19 @@ public class PlacedFeatureRegistry
 		KILLIUM_FEATURE = registerRange(new ResourceLocation(References.MODID, "killium_ore"), FeatureRegistry.KILLIUM_FEATURE, 0, 60, 4);
 		RANDOMIUM_FEATURE = registerRange(new ResourceLocation(References.MODID, "randomium_ore"), FeatureRegistry.RANDOMIUM_FEATURE, 0, 60, 5);
 		MEMENITE_ORE = registerRange(new ResourceLocation(References.MODID, "memenite_ore"), FeatureRegistry.MEMENITE_ORE, 0, 60, 3);
-		LITEINNITE_ORE = registerRange(new ResourceLocation(References.MODID, "liteinnite_ore"), FeatureRegistry.LITEINNITE_ORE, 0, 60, 4);
+		LITEINNITE_ORE = registerRange(new ResourceLocation(References.MODID, "liteinnite_ore"), FeatureRegistry.LITEINNITE_ORE, -60, 0, 4);
 		BESTFORGE_ORE = registerRange(new ResourceLocation(References.MODID, "bestforge_ore"), FeatureRegistry.BESTFORGE_ORE, -60, 60, 6);
 		DOGECOIN_ORE = registerRange(new ResourceLocation(References.MODID, "dogecoin_ore"), FeatureRegistry.DOGECOIN_ORE, 0, 48, 4);
-		MOBIUM_ORE = registerRange(new ResourceLocation(References.MODID, "mobium_ore"), FeatureRegistry.MOBIUM_ORE, 0, 20, 2);
+		MOBIUM_ORE = registerRange(new ResourceLocation(References.MODID, "mobium_ore"), FeatureRegistry.MOBIUM_ORE, -50, -10, 2);
 		DREAMIUM_ORE = registerRange(new ResourceLocation(References.MODID, "dreamium_ore"), FeatureRegistry.DREAMIUM_ORE, 0, 60, 4);
-		DIAMOND_ORE = registerRange(new ResourceLocation(References.MODID, "diamond_ore"), FeatureRegistry.DIAMOND_ORE, 0, 60, 6);
+		DIAMOND_ORE = registerRange(new ResourceLocation(References.MODID, "diamond_ore"), FeatureRegistry.DIAMOND_ORE, -60, 0, 6);
 		TRIPLITE_ORE = registerRange(new ResourceLocation(References.MODID, "triplite_ore"), FeatureRegistry.TRIPLITE_ORE, 0, 60, 4);
+		LAGGERITE_FEATURE = registerRange(new ResourceLocation(References.MODID, "laggerite_ore"), FeatureRegistry.LAGGERITE_ORE, 0, 60, 4);
+		DEEPSLATE_LAGGERITE_FEATURE = registerRange(new ResourceLocation(References.MODID, "deepslate_laggerite_ore"), FeatureRegistry.DEEPSLATE_LAGGERITE_ORE, -60, 0, 4);
+		
+		DEEPSLATE_KILLIUM_FEATURE = registerRange(new ResourceLocation(References.MODID, "deepslate_killium_ore"), FeatureRegistry.DEEPSLATE_KILLIUM_FEATURE, -60, 0, 4);
+		DEEPSLATE_ALOTOSTUFFIUM_FEATURE = registerRange(new ResourceLocation(References.MODID, "deepslate_alotofstuffium_ore"), FeatureRegistry.DEEPSLATE_ALOTOSTUFFIUM_FEATURE, -60, -8, 3);
+		DEEPSLATE_RANDOMIUM_FEATURE = registerRange(new ResourceLocation(References.MODID, "deepslate_randomium_ore"), FeatureRegistry.DEEPSLATE_RANDOMIUM_FEATURE, -60, 0, 5);
 	}
 	
 	@SubscribeEvent
@@ -89,6 +101,12 @@ public class PlacedFeatureRegistry
 			event.getGeneration().addFeature(Decoration.UNDERGROUND_ORES, DREAMIUM_ORE);
 			event.getGeneration().addFeature(Decoration.UNDERGROUND_ORES, DIAMOND_ORE);
 			event.getGeneration().addFeature(Decoration.UNDERGROUND_ORES, TRIPLITE_ORE);
+			event.getGeneration().addFeature(Decoration.UNDERGROUND_ORES, LAGGERITE_FEATURE);
+			event.getGeneration().addFeature(Decoration.UNDERGROUND_ORES, DEEPSLATE_LAGGERITE_FEATURE);
+			
+			event.getGeneration().addFeature(Decoration.UNDERGROUND_ORES, DEEPSLATE_KILLIUM_FEATURE);
+			event.getGeneration().addFeature(Decoration.UNDERGROUND_ORES, DEEPSLATE_ALOTOSTUFFIUM_FEATURE);
+			event.getGeneration().addFeature(Decoration.UNDERGROUND_ORES, DEEPSLATE_RANDOMIUM_FEATURE);
 		}
 	}
 	
