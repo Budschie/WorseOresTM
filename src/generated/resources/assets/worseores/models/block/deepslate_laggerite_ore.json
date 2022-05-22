@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "worseores:block/deepslate_laggerite_ore"
+  }
+}

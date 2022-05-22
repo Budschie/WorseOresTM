@@ -19,10 +19,12 @@
     "worseores:liteinnite_ore",
     "worseores:memenite_ore",
     "worseores:bestforge_ore",
-    "worseores:diamond_ore",
+    "worseores:deepslate_diamond_ore",
     "worseores:diamond_block",
     "worseores:deepslate_alotostuffium_ore",
     "worseores:deepslate_killium_ore",
-    "worseores:deepslate_randomium_ore"
+    "worseores:deepslate_randomium_ore",
+    "worseores:laggerite_ore",
+    "worseores:deepslate_laggerite_ore"
   ]
 }

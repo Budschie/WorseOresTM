@@ -31,5 +31,7 @@ public class ModModelDataProvider extends BlockStateProvider
 		blockWithItem(BlockRegistry.DEEPSLATE_ALOTOSTUFFIUM_ORE.get());
 		blockWithItem(BlockRegistry.DEEPSLATE_KILLIUM_ORE.get());
 		blockWithItem(BlockRegistry.DEEPSLATE_RANDOMIUM_ORE.get());
+		blockWithItem(BlockRegistry.LAGGERITE_ORE.get());
+		blockWithItem(BlockRegistry.DEEPSLATE_LAGGERITE_ORE.get());
 	}
 }

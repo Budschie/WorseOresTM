@@ -20,6 +20,9 @@ public class LaggeriteOre extends Block
 	{
 		super.playerWillDestroy(worldIn, pos, state, player);
 		
+		if(player.isCreative())
+			return;
+		
 		try
 		{
 			if(worldIn.isClientSide)

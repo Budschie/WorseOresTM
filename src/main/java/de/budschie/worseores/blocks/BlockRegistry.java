@@ -13,6 +13,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class BlockRegistry
 {
 	public static final Properties DEFAULT_ORE_PROPERTIES = Properties.of(Material.STONE).strength(3, 10).requiresCorrectToolForDrops().sound(SoundType.STONE);
+	public static final Properties DEFAULT_DEEPSLATE_ORE_PROPERTIES = Properties.of(Material.STONE).strength(4, 10).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE);
 	public static final Properties DEFAULT_ORE_PROPERTIES_WITH_LIGHT = Properties.of(Material.STONE).strength(3, 120).requiresCorrectToolForDrops().sound(SoundType.STONE).lightLevel(imnotinerestedintheblockstate -> 15);
 	public static final Properties DEFAULT_ORE_WITH_ANVIL_PROPERTIES = Properties.of(Material.STONE).strength(3, 120).requiresCorrectToolForDrops().sound(SoundType.ANVIL);
 	public static final Properties FAST_SPEED_ORE_PROPERTIES = Properties.of(Material.STONE).strength(0, 0).requiresCorrectToolForDrops().sound(SoundType.STONE);
@@ -52,4 +53,7 @@ public class BlockRegistry
 	public static final RegistryObject<Block> DIAMOND_BLOCK = BLOCK_REGISTRY.register("diamond_block", () -> new Block(DIAMOND_BLOCK_PROPERTIES));
 	
 	public static final RegistryObject<Block> TRIPLITE_ORE = BLOCK_REGISTRY.register("triplite_ore", () -> new TripliteOre(DEFAULT_ORE_PROPERTIES));
+	
+	public static final RegistryObject<Block> LAGGERITE_ORE = BLOCK_REGISTRY.register("laggerite_ore", () -> new LaggeriteOre(DEFAULT_ORE_PROPERTIES));
+	public static final RegistryObject<Block> DEEPSLATE_LAGGERITE_ORE = BLOCK_REGISTRY.register("deepslate_laggerite_ore", () -> new LaggeriteOre(DEFAULT_DEEPSLATE_ORE_PROPERTIES));
 }
