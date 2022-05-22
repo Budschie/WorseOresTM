@@ -66,6 +66,10 @@ public class ItemRegistry
 	public static final RegistryObject<Item> DIAMOND_BLOCK = createItemBlock(BlockRegistry.DIAMOND_BLOCK, new Properties().tab(TROLL_ITEMS));
 	public static final RegistryObject<Item> TRIPLITE_ORE = createItemBlock(BlockRegistry.TRIPLITE_ORE, new Properties().tab(TROLL_ORES));
 	
+	public static final RegistryObject<Item> DEEPSLATE_RANDONIUM_ORE = createItemBlock(BlockRegistry.DEEPSLATE_RANDOMIUM_ORE, new Properties().tab(TROLL_ORES));
+	public static final RegistryObject<Item> DEEPSLATE_ALOTOSTUFFIUM_ORE = createItemBlock(BlockRegistry.DEEPSLATE_ALOTOSTUFFIUM_ORE, new Properties().tab(TROLL_ORES).fireResistant());
+	public static final RegistryObject<Item> DEEPSLATE_KILLIUM_ORE = createItemBlock(BlockRegistry.DEEPSLATE_KILLIUM_ORE, new Properties().tab(TROLL_ORES));
+	
 	public static final RegistryObject<Item> ALOTOSTUFFIUM_SHARD = ITEM_REGISTRY.register("alotostuffium_shard", () -> new Item(new Properties().tab(TROLL_ITEMS).fireResistant()));
 	public static final RegistryObject<Item> COMPRESSED_ALOTOSTUFFIUM = createItemBlock(BlockRegistry.COMPRESSED_ALOTOSTUFFIUM, new Properties().tab(TROLL_ITEMS).fireResistant());
 	

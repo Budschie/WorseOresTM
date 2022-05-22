@@ -24,6 +24,7 @@ public class BlockRegistry
 
 	public static final RegistryObject<Block> COPPER_ORE = BLOCK_REGISTRY.register("copper_ore", () -> new CopperOre(DEFAULT_ORE_PROPERTIES));
 	public static final RegistryObject<Block> ALOTOSTUFFIUM_ORE = BLOCK_REGISTRY.register("alotostuffium_ore", () -> new CopperOre(FAST_SPEED_ORE_PROPERTIES));
+	public static final RegistryObject<Block> DEEPSLATE_ALOTOSTUFFIUM_ORE = BLOCK_REGISTRY.register("deepslate_alotostuffium_ore", () -> new CopperOre(FAST_SPEED_ORE_PROPERTIES));
 	public static final RegistryObject<Block> COMPRESSED_ALOTOSTUFFIUM = BLOCK_REGISTRY.register("compressed_alotostuffium", () -> new Block(DEFAULT_ORE_PROPERTIES));
 	public static final RegistryObject<Block> AMADEUM_ORE = BLOCK_REGISTRY.register("amadeum_ore", () -> new AmadeumOre(DEFAULT_ORE_PROPERTIES));
 	public static final RegistryObject<Block> APPETITE_ORE = BLOCK_REGISTRY.register("appetite_ore", () -> new AppetiteOre(DEFAULT_SANDORE_PROPERTIES));
@@ -34,7 +35,9 @@ public class BlockRegistry
 	
 	public static final RegistryObject<Block> NOFITE_ORE = BLOCK_REGISTRY.register("nofite_ore", () -> new Block(DEFAULT_ORE_PROPERTIES));
 	public static final RegistryObject<Block> KILLIUM_ORE = BLOCK_REGISTRY.register("killium_ore", () -> new Block(DEFAULT_ORE_PROPERTIES));
+	public static final RegistryObject<Block> DEEPSLATE_KILLIUM_ORE = BLOCK_REGISTRY.register("deepslate_killium_ore", () -> new Block(DEFAULT_ORE_PROPERTIES));
 	public static final RegistryObject<Block> RANDOMIUM_ORE = BLOCK_REGISTRY.register("randomium_ore", () -> new Block(DEFAULT_ORE_PROPERTIES));
+	public static final RegistryObject<Block> DEEPSLATE_RANDOMIUM_ORE = BLOCK_REGISTRY.register("deepslate_randomium_ore", () -> new Block(DEFAULT_ORE_PROPERTIES));
 	public static final RegistryObject<Block> MEMENITE_ORE = BLOCK_REGISTRY.register("memenite_ore", () -> new MemeniteOre(DEFAULT_ORE_WITH_ANVIL_PROPERTIES));
 	public static final RegistryObject<Block> LITEINNITE_ORE = BLOCK_REGISTRY.register("liteinnite_ore", () -> new Block(DEFAULT_ORE_PROPERTIES_WITH_LIGHT));
 

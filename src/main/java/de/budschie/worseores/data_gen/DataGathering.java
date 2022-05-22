@@ -13,5 +13,6 @@ public class DataGathering
 	public static void onDataGathering(GatherDataEvent event)
 	{
 		event.getGenerator().addProvider(new ModBlockTagsProvider(event.getGenerator(), References.MODID, event.getExistingFileHelper()));
+		event.getGenerator().addProvider(new ModModelDataProvider(event.getGenerator(), References.MODID, event.getExistingFileHelper()));
 	}
 }
