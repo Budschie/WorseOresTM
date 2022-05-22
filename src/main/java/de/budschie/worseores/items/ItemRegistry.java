@@ -62,7 +62,7 @@ public class ItemRegistry
 	public static final RegistryObject<Item> DOGECOIN_ORE = createItemBlock(BlockRegistry.DOGECOIN_ORE, new Properties().tab(TROLL_ORES));
 	public static final RegistryObject<Item> MOBIUM_ORE = createItemBlock(BlockRegistry.MOBIUM_ORE, new Properties().tab(TROLL_ORES));
 	public static final RegistryObject<Item> DREAMIUM_ORE = createItemBlock(BlockRegistry.DREAMIUM_ORE, new Properties().tab(TROLL_ORES));
-	public static final RegistryObject<Item> DIAMOND_ORE = createItemBlock(BlockRegistry.DIAMOND_ORE, new Properties().tab(TROLL_ORES));
+	public static final RegistryObject<Item> DEEPSLATE_DIAMOND_ORE = createItemBlock(BlockRegistry.DEEPSLATE_DIAMOND_ORE, new Properties().tab(TROLL_ORES));
 	public static final RegistryObject<Item> DIAMOND_BLOCK = createItemBlock(BlockRegistry.DIAMOND_BLOCK, new Properties().tab(TROLL_ITEMS));
 	public static final RegistryObject<Item> TRIPLITE_ORE = createItemBlock(BlockRegistry.TRIPLITE_ORE, new Properties().tab(TROLL_ORES));
 	

@@ -33,7 +33,7 @@ public class AncientBrickOfKnowledge extends Item
 			new GuideBookPage("Dogecoin Ore", ItemRegistry.DOGECOIN_ORE.get(), new String[] {"Did you ever invest in", "cryptocurrencies?", "", "Well, no matter the", "answer, you should know", "that buying dogecoin", "always pays off!", "", "You want 5 Million", "dollars?", "", "Just mine dogecoin (ore).", "It's that simple."}),
 			new GuideBookPage("Mobium Ore", ItemRegistry.MOBIUM_ORE.get(), new String[] {"This ore remembers", "every single sound", "in the game,", "and it wants everyone to", "know this.", "", "Pretty impressive, right?"}),
 			new GuideBookPage("Dreamium Ore", ItemRegistry.DREAMIUM_ORE.get(), new String[] {"Dream didn't cheat.", "", "Or did he?", "", "*VSauce music*"}),
-			new GuideBookPage("Diamond Ore", ItemRegistry.DIAMOND_ORE.get(), new String[] {"Just a regular and shiny", ChatFormatting.DARK_AQUA + "Diamond!", "", "At least I think."}),
+			new GuideBookPage("Deepslate Diamond Ore", ItemRegistry.DEEPSLATE_DIAMOND_ORE.get(), new String[] {"Just a regular and shiny", ChatFormatting.DARK_AQUA + "Diamond!", "", "At least I think."}),
 			new GuideBookPage("Just Stone", ItemRegistry.TRIPLITE_ORE.get(), new String[] {"This ore is", "just a variation", "of stone.", "", "It looks good, doesn't it?"})
 	};
 	

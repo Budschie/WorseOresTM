@@ -17,7 +17,7 @@ public class BlockRegistry
 	public static final Properties DEFAULT_ORE_WITH_ANVIL_PROPERTIES = Properties.of(Material.STONE).strength(3, 120).requiresCorrectToolForDrops().sound(SoundType.ANVIL);
 	public static final Properties FAST_SPEED_ORE_PROPERTIES = Properties.of(Material.STONE).strength(0, 0).requiresCorrectToolForDrops().sound(SoundType.STONE);
 	public static final Properties DEFAULT_SANDORE_PROPERTIES = Properties.of(Material.SAND).strength(.5f, 10).sound(SoundType.SAND);
-	public static final Properties DIAMOND_PROPERTIES = Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F, 3.0F);
+	public static final Properties DIAMOND_PROPERTIES = Properties.of(Material.STONE).sound(SoundType.DEEPSLATE).requiresCorrectToolForDrops().strength(3.0F, 3.0F);
 	public static final Properties DIAMOND_BLOCK_PROPERTIES = Properties.of(Material.METAL, MaterialColor.DIAMOND).requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL);
 	
 	public static final DeferredRegister<Block> BLOCK_REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, References.MODID);
@@ -48,7 +48,7 @@ public class BlockRegistry
 	public static final RegistryObject<Block> MOBIUM_ORE = BLOCK_REGISTRY.register("mobium_ore", () -> new MobiumOre(DEFAULT_ORE_PROPERTIES));
 	
 	public static final RegistryObject<Block> DREAMIUM_ORE = BLOCK_REGISTRY.register("dreamium_ore", () -> new DreamiumOre(DEFAULT_ORE_PROPERTIES));
-	public static final RegistryObject<Block> DIAMOND_ORE = BLOCK_REGISTRY.register("diamond_ore", () -> new Block(DIAMOND_PROPERTIES));
+	public static final RegistryObject<Block> DEEPSLATE_DIAMOND_ORE = BLOCK_REGISTRY.register("deepslate_diamond_ore", () -> new Block(DIAMOND_PROPERTIES));
 	public static final RegistryObject<Block> DIAMOND_BLOCK = BLOCK_REGISTRY.register("diamond_block", () -> new Block(DIAMOND_BLOCK_PROPERTIES));
 	
 	public static final RegistryObject<Block> TRIPLITE_ORE = BLOCK_REGISTRY.register("triplite_ore", () -> new TripliteOre(DEFAULT_ORE_PROPERTIES));
