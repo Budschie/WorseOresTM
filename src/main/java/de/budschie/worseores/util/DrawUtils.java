@@ -9,6 +9,8 @@ import com.mojang.blaze3d.vertex.Tesselator;
 import com.mojang.blaze3d.vertex.VertexFormat.Mode;
 import com.mojang.math.Matrix4f;
 
+import net.minecraft.client.renderer.GameRenderer;
+
 public class DrawUtils
 {	
 	public static void blit(PoseStack stack, int x, int y, int width, int height, int sampleX, int sampleY, int sampleWidth, int sampleHeight, int texWidth, int texHeight, boolean flipHorizontal, boolean flipVertical)
@@ -34,6 +36,7 @@ public class DrawUtils
 			minV = temp;
 		}
 		
+	    RenderSystem.setShader(GameRenderer::getPositionTexShader);
 		BufferBuilder bufferbuilder = Tesselator.getInstance().getBuilder();
 		bufferbuilder.begin(Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
 		bufferbuilder.vertex(matrix, (float) x1, (float) y2, (float) blitOffset).uv(minU, maxV).endVertex();
