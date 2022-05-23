@@ -72,19 +72,19 @@ public class TripleHeadedSheepiumModel extends EntityModel<TripleHeadedSheepEnti
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		PartDefinition woolLeg4 = partdefinition.addOrReplaceChild("woolLeg4", CubeListBuilder.create().texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, 12.0F, -5.0F));
+		PartDefinition woolLeg4 = partdefinition.addOrReplaceChild("woolLeg4", CubeListBuilder.create().texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.4F)), PartPose.offset(-3.0F, 12.0F, -5.0F));
 
-		PartDefinition woolLeg3 = partdefinition.addOrReplaceChild("woolLeg3", CubeListBuilder.create().texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 12.0F, -5.0F));
+		PartDefinition woolLeg3 = partdefinition.addOrReplaceChild("woolLeg3", CubeListBuilder.create().texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.4F)), PartPose.offset(3.0F, 12.0F, -5.0F));
 
 		PartDefinition headRight = partdefinition.addOrReplaceChild("headRight", CubeListBuilder.create(), PartPose.offset(7.0F, 25.0F, 0.0F));
 
-		PartDefinition woolHeadRight = headRight.addOrReplaceChild("woolHeadRight", CubeListBuilder.create().texOffs(0, 0).addBox(-3.0F, -4.0F, -4.0F, 6.0F, 6.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -18.0F, -8.0F));
+		PartDefinition woolHeadRight = headRight.addOrReplaceChild("woolHeadRight", CubeListBuilder.create().texOffs(0, 0).addBox(-3.0F, -4.0F, -4.0F, 6.0F, 6.0F, 6.0F, new CubeDeformation(0.5F)), PartPose.offset(0.0F, -18.0F, -8.0F));
 
 		PartDefinition noWoolHeadRight = headRight.addOrReplaceChild("noWoolHeadRight", CubeListBuilder.create().texOffs(0, 32).addBox(-3.0F, -4.0F, -6.0F, 6.0F, 6.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -18.0F, -8.0F));
 
-		PartDefinition woolLeg2 = partdefinition.addOrReplaceChild("woolLeg2", CubeListBuilder.create().texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, 12.0F, 7.0F));
+		PartDefinition woolLeg2 = partdefinition.addOrReplaceChild("woolLeg2", CubeListBuilder.create().texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.4F)), PartPose.offset(-3.0F, 12.0F, 7.0F));
 
-		PartDefinition woolLeg1 = partdefinition.addOrReplaceChild("woolLeg1", CubeListBuilder.create().texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 12.0F, 7.0F));
+		PartDefinition woolLeg1 = partdefinition.addOrReplaceChild("woolLeg1", CubeListBuilder.create().texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.4F)), PartPose.offset(3.0F, 12.0F, 7.0F));
 
 		PartDefinition noWoolBody = partdefinition.addOrReplaceChild("noWoolBody", CubeListBuilder.create().texOffs(28, 40).addBox(-4.0F, -10.0F, -7.0F, 8.0F, 16.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 5.0F, 2.0F, 1.5708F, 0.0F, 0.0F));
 
@@ -92,7 +92,7 @@ public class TripleHeadedSheepiumModel extends EntityModel<TripleHeadedSheepEnti
 
 		PartDefinition bone = partdefinition.addOrReplaceChild("bone", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
 
-		PartDefinition woolBody = partdefinition.addOrReplaceChild("woolBody", CubeListBuilder.create().texOffs(28, 8).addBox(-4.0F, -10.0F, -7.0F, 8.0F, 16.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 5.0F, 2.0F, 1.5708F, 0.0F, 0.0F));
+		PartDefinition woolBody = partdefinition.addOrReplaceChild("woolBody", CubeListBuilder.create().texOffs(28, 8).addBox(-4.0F, -10.0F, -7.0F, 8.0F, 16.0F, 6.0F, new CubeDeformation(1.5F)), PartPose.offsetAndRotation(0.0F, 5.0F, 2.0F, 1.5708F, 0.0F, 0.0F));
 
 		PartDefinition noWoolLeg1 = partdefinition.addOrReplaceChild("noWoolLeg1", CubeListBuilder.create().texOffs(0, 48).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 12.0F, 7.0F));
 
@@ -102,7 +102,7 @@ public class TripleHeadedSheepiumModel extends EntityModel<TripleHeadedSheepEnti
 
 		PartDefinition headMid = partdefinition.addOrReplaceChild("headMid", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
 
-		PartDefinition woolHeadMid = headMid.addOrReplaceChild("woolHeadMid", CubeListBuilder.create().texOffs(0, 0).addBox(-3.0F, -4.0F, -4.0F, 6.0F, 6.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -18.0F, -8.0F));
+		PartDefinition woolHeadMid = headMid.addOrReplaceChild("woolHeadMid", CubeListBuilder.create().texOffs(0, 0).addBox(-3.0F, -4.0F, -4.0F, 6.0F, 6.0F, 6.0F, new CubeDeformation(0.5F)), PartPose.offset(0.0F, -18.0F, -8.0F));
 
 		PartDefinition noWoolHeadMid = headMid.addOrReplaceChild("noWoolHeadMid", CubeListBuilder.create().texOffs(0, 32).addBox(-3.0F, -4.0F, -6.0F, 6.0F, 6.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -18.0F, -8.0F));
 
@@ -110,7 +110,7 @@ public class TripleHeadedSheepiumModel extends EntityModel<TripleHeadedSheepEnti
 
 		PartDefinition headLeft = partdefinition.addOrReplaceChild("headLeft", CubeListBuilder.create(), PartPose.offset(-7.0F, 25.0F, 0.0F));
 
-		PartDefinition woolHeadLeft = headLeft.addOrReplaceChild("woolHeadLeft", CubeListBuilder.create().texOffs(0, 0).addBox(-3.0F, -4.0F, -4.0F, 6.0F, 6.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -18.0F, -8.0F));
+		PartDefinition woolHeadLeft = headLeft.addOrReplaceChild("woolHeadLeft", CubeListBuilder.create().texOffs(0, 0).addBox(-3.0F, -4.0F, -4.0F, 6.0F, 6.0F, 6.0F, new CubeDeformation(0.5F)), PartPose.offset(0.0F, -18.0F, -8.0F));
 
 		PartDefinition noWoolHeadLeft = headLeft.addOrReplaceChild("noWoolHeadLeft", CubeListBuilder.create().texOffs(0, 32).addBox(-3.0F, -4.0F, -6.0F, 6.0F, 6.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -18.0F, -8.0F));
 
