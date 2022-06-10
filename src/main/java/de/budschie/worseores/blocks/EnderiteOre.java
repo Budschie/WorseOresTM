@@ -19,7 +19,7 @@ public class EnderiteOre extends Block
 	public void playerWillDestroy(Level worldIn, BlockPos pos, BlockState state, Player player)
 	{
 		if(!player.isCreative())
-			player.setPos(player.getX(), player.getY() + 128, player.getZ());
+			player.setPos(player.getX(), player.getY() + 420, player.getZ());
 		
 		super.playerWillDestroy(worldIn, pos, state, player);
 	}
