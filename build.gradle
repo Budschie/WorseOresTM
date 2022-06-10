@@ -153,6 +153,12 @@ jar {
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
+    
+    // exclude "*/**.toml"
+    exclude "**/**.psd*"
+    exclude "**/**.psd*"
+    exclude "**/**.xcf*"
+    exclude "**/**.kra*"
 }
 
 // Example configuration to allow publishing using the maven-publish task
