@@ -88,8 +88,9 @@ public class FeatureRegistry
 		DOGECOIN_ORE = register(new ResourceLocation(References.MODID, "dogecoin_ore_feature"), 
 				Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, BlockRegistry.DOGECOIN_ORE.get().defaultBlockState(), 4));
 	
+		// heheheha
 		MOBIUM_ORE = register(new ResourceLocation(References.MODID, "mobium_ore_feature"), 
-				Feature.ORE, new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, BlockRegistry.MOBIUM_ORE.get().defaultBlockState(), 11));
+				Feature.ORE, new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, BlockRegistry.MOBIUM_ORE.get().defaultBlockState(), (int)4.2));
 		
 		DREAMIUM_ORE = register(new ResourceLocation(References.MODID, "dreamium_ore_feature"), 
 				Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, BlockRegistry.DREAMIUM_ORE.get().defaultBlockState(), 7));

@@ -65,7 +65,7 @@ public class PlacedFeatureRegistry
 		LITEINNITE_ORE = registerRange(new ResourceLocation(References.MODID, "liteinnite_ore"), FeatureRegistry.LITEINNITE_ORE, -60, 0, 4);
 		BESTFORGE_ORE = registerRange(new ResourceLocation(References.MODID, "bestforge_ore"), FeatureRegistry.BESTFORGE_ORE, -60, 60, 6);
 		DOGECOIN_ORE = registerRange(new ResourceLocation(References.MODID, "dogecoin_ore"), FeatureRegistry.DOGECOIN_ORE, 0, 48, 4);
-		MOBIUM_ORE = registerRange(new ResourceLocation(References.MODID, "mobium_ore"), FeatureRegistry.MOBIUM_ORE, -50, -10, 2);
+		MOBIUM_ORE = registerRange(new ResourceLocation(References.MODID, "mobium_ore"), FeatureRegistry.MOBIUM_ORE, -50, -10, 1);
 		DREAMIUM_ORE = registerRange(new ResourceLocation(References.MODID, "dreamium_ore"), FeatureRegistry.DREAMIUM_ORE, 0, 60, 4);
 		DIAMOND_ORE = registerRange(new ResourceLocation(References.MODID, "diamond_ore"), FeatureRegistry.DIAMOND_ORE, -60, 0, 6);
 		TRIPLITE_ORE = registerRange(new ResourceLocation(References.MODID, "triplite_ore"), FeatureRegistry.TRIPLITE_ORE, 0, 60, 4);
