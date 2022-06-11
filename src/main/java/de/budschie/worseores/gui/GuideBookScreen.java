@@ -22,6 +22,7 @@ public class GuideBookScreen extends Screen
 	
 	private GuideBookPage[] pages;
 	private int currentPage = 0;
+	private static final float ADDITIONAL_SCALE_FACTOR = 2f;
 	
 	public GuideBookScreen(GuideBookPage[] pages)
 	{
@@ -46,31 +47,30 @@ public class GuideBookScreen extends Screen
 	{
 		Minecraft mc = Minecraft.getInstance();
 		RenderSystem.setShaderTexture(0, BOOK_RESOURCE_LOCATION);
-		double scale = mc.getWindow().getGuiScale();
 				
-		sizeWidthPage = (int) (76 * 1.3 * scale);
-		sizeHeightPage = (int) (58 * 1.3 * scale);
+		sizeWidthPage = (int) (76 * ADDITIONAL_SCALE_FACTOR);
+		sizeHeightPage = (int) (58 * ADDITIONAL_SCALE_FACTOR);
 		
-		centeredX = (int) (((mc.getWindow().getWidth() / scale) - sizeWidthPage) / 2);
-		centeredY = (int) (((mc.getWindow().getHeight() / scale) - sizeHeightPage) / 2);
+		centeredX = (int) (((mc.getWindow().getGuiScaledWidth()) - sizeWidthPage * ADDITIONAL_SCALE_FACTOR) / 2);
+		centeredY = (int) (((mc.getWindow().getGuiScaledHeight()) - sizeHeightPage * ADDITIONAL_SCALE_FACTOR) / 2);
 		
-		int sizeWidthButton = (int) (12 * scale);
-		int sizeHeightButton = (int) (9 * scale);
+		int sizeWidthButton = (int) (12);
+		int sizeHeightButton = (int) (9);
 		
 		SampleData hover = new SampleData(4, 64 - 36, 12, 9);
 		SampleData normal = new SampleData(4, 64 - 24, 12, 9);
 		
-		this.addRenderableWidget(new GraphicsWidget((int) (centeredX + 3 * scale * 1.3), (int) (centeredY + sizeHeightPage - sizeHeightButton - 3 * scale * 1.3), sizeWidthButton, sizeHeightButton, normal, hover, false, 128, 64, () -> RenderSystem.setShaderTexture(0, BOOK_RESOURCE_LOCATION), () -> changePage(-1)));
-		this.addRenderableWidget(new GraphicsWidget((int) (centeredX + sizeWidthPage - sizeWidthButton - 3 * scale * 1.3), (int) (centeredY + sizeHeightPage - sizeHeightButton - 3 * scale * 1.3), sizeWidthButton, sizeHeightButton, normal, hover, true, 128, 64, () -> RenderSystem.setShaderTexture(0, BOOK_RESOURCE_LOCATION), () -> changePage(1)));
+		this.addRenderableWidget(new GraphicsWidget((int) (centeredX) + 5, (int) (centeredY + sizeHeightPage * ADDITIONAL_SCALE_FACTOR - sizeHeightButton * ADDITIONAL_SCALE_FACTOR) - 5, (int) (sizeWidthButton * ADDITIONAL_SCALE_FACTOR), (int) (sizeHeightButton * ADDITIONAL_SCALE_FACTOR), normal, hover, false, 128, 64, () -> RenderSystem.setShaderTexture(0, BOOK_RESOURCE_LOCATION), () -> changePage(-1)));
+		this.addRenderableWidget(new GraphicsWidget((int) (centeredX + sizeWidthPage * 2 - sizeWidthButton * ADDITIONAL_SCALE_FACTOR - 3) - 5, (int) (centeredY + sizeHeightPage * ADDITIONAL_SCALE_FACTOR - sizeHeightButton * ADDITIONAL_SCALE_FACTOR) - 5, (int) (sizeWidthButton * ADDITIONAL_SCALE_FACTOR), (int) (sizeHeightButton * ADDITIONAL_SCALE_FACTOR), normal, hover, true, 128, 64, () -> RenderSystem.setShaderTexture(0, BOOK_RESOURCE_LOCATION), () -> changePage(1)));
 	}
 	
 	private void renderBookPage(GuideBookPage page, int x, int y, PoseStack stack)
 	{
-		double scale = Minecraft.getInstance().getWindow().getGuiScale();
-		Minecraft.getInstance().getItemRenderer().renderAndDecorateItem(new ItemStack(page.getItem()), (int)(x + scale * 4), (int) (y + scale * 4));
+		Minecraft.getInstance().getItemRenderer().renderAndDecorateItem(new ItemStack(page.getItem()), (int)(x + 10), (int) (y + 7));
 		
-		drawString(stack, font, new TextComponent(ChatFormatting.GOLD.toString() + ChatFormatting.UNDERLINE + page.getTitle()), (int)(x + scale * 11), (int) (y + scale * 5), 0);
-		
+//		stack.pushPose();
+//		stack.scale(1.0f / 0.3f, 1 / 0.3f, 1 / 0.3f);
+		drawString(stack, font, new TextComponent(ChatFormatting.GOLD.toString() + ChatFormatting.UNDERLINE + page.getTitle()), (int)(x + 28), (int) (y + 11), 0);
 //		stack.push();
 //		
 //		stack.scale(1.3f, 1.3f, 1);
@@ -78,34 +78,41 @@ public class GuideBookScreen extends Screen
 		for(int i = 0; i < page.getText().length; i++)
 		{
 			String currentLine = page.getText()[i];
-			Minecraft.getInstance().font.draw(stack, new TextComponent(ChatFormatting.BLACK.toString() + currentLine), (int)(x + scale * 4), (int) (y + scale * (12 + i * 3)), 0);
+			Minecraft.getInstance().font.draw(stack, new TextComponent(ChatFormatting.BLACK.toString() + currentLine), (int)(x + 4 * ADDITIONAL_SCALE_FACTOR), (int) (y + ADDITIONAL_SCALE_FACTOR * (12 + i * 5)), 0);
 		}
-		
+//		stack.popPose();
 //		stack.pop();
 	}
 	
 	@Override
 	public void render(PoseStack matrixStack, int mouseX, int mouseY, float partialTicks)
 	{
+//		renderBackground(matrixStack);
+//		
+//		Minecraft mc = Minecraft.getInstance();
+//		RenderSystem.setShaderTexture(0, BOOK_RESOURCE_LOCATION);
+//		
+//		GuiComponent.blit(matrixStack, centeredX, centeredY, (int)(sizeWidthPage * ADDITIONAL_SCALE_FACTOR), (int)(sizeHeightPage * ADDITIONAL_SCALE_FACTOR), 26, 67, 76, 58, 128, 64);
+		
 		renderBackground(matrixStack);
 		
 		Minecraft mc = Minecraft.getInstance();
 		RenderSystem.setShaderTexture(0, BOOK_RESOURCE_LOCATION);
 		
 		RenderSystem.enableBlend();
-		GuiComponent.blit(matrixStack, centeredX, centeredY, sizeWidthPage, sizeHeightPage, 26, 67, 76, 58, 128, 64);
+		GuiComponent.blit(matrixStack, centeredX, centeredY, (int)(sizeWidthPage * ADDITIONAL_SCALE_FACTOR), (int)(sizeHeightPage * ADDITIONAL_SCALE_FACTOR), 26, 67, 76, 58, 128, 64);
 		
 		//drawString(matrixStack, font, new StringTextComponent(TextFormatting.AQUA + "I like ya cut g"), 0, 0, 0);
 		//mc.getItemRenderer().renderItemAndEffectIntoGUI(new ItemStack(ItemRegistry.BESTFORGE_ORE.get()), 0, 0);
 		
 		
-		renderBookPage(pages[currentPage * 2], centeredX, centeredY, matrixStack);
+		renderBookPage(pages[currentPage * 2], centeredX, centeredY + 5, matrixStack);
 		
 		if(currentPage * 2 + 1 < pages.length)
-			renderBookPage(pages[currentPage * 2 + 1], centeredX + sizeWidthPage / 2, centeredY, matrixStack);
+			renderBookPage(pages[currentPage * 2 + 1], (int)(centeredX + sizeWidthPage+ 5), centeredY + 5, matrixStack);
 		
 		super.render(matrixStack, mouseX, mouseY, partialTicks);
-		//AbstractGui.blit(matrixStack, centeredX + 3, centeredY + sizeHeightPage - sizeHeightButton - 3, sizeWidthButton, sizeHeightButton, 4, 64 - (active ? 36 : 24), 12, 9, 128, 64);
+//		AbstractGui.blit(matrixStack, centeredX + 3, centeredY + sizeHeightPage - sizeHeightButton - 3, sizeWidthButton, sizeHeightButton, 4, 64 - (active ? 36 : 24), 12, 9, 128, 64);
 	}
 	
 	@Override
