@@ -109,7 +109,7 @@ public class GuideBookScreen extends Screen
 		renderBookPage(pages[currentPage * 2], centeredX, centeredY + 5, matrixStack);
 		
 		if(currentPage * 2 + 1 < pages.length)
-			renderBookPage(pages[currentPage * 2 + 1], (int)(centeredX + sizeWidthPage+ 5), centeredY + 5, matrixStack);
+			renderBookPage(pages[currentPage * 2 + 1], (int)(centeredX + sizeWidthPage + 4), centeredY + 5, matrixStack);
 		
 		super.render(matrixStack, mouseX, mouseY, partialTicks);
 //		AbstractGui.blit(matrixStack, centeredX + 3, centeredY + sizeHeightPage - sizeHeightButton - 3, sizeWidthButton, sizeHeightButton, 4, 64 - (active ? 36 : 24), 12, 9, 128, 64);
