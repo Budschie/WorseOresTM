@@ -65,7 +65,7 @@ public class ItemRegistry
 	public static final RegistryObject<Item> DEEPSLATE_DIAMOND_ORE = createItemBlock(BlockRegistry.DEEPSLATE_DIAMOND_ORE, new Properties().tab(TROLL_ORES));
 	public static final RegistryObject<Item> DIAMOND_BLOCK = createItemBlock(BlockRegistry.DIAMOND_BLOCK, new Properties().tab(TROLL_ITEMS));
 	public static final RegistryObject<Item> TRIPLITE_ORE = createItemBlock(BlockRegistry.TRIPLITE_ORE, new Properties().tab(TROLL_ORES));
-	public static final RegistryObject<Item> LAGGERITE_ORE = createItemBlock(BlockRegistry.LAGGERITE_ORE, new Properties().tab(TROLL_ITEMS));
+	public static final RegistryObject<Item> LAGGERITE_ORE = createItemBlock(BlockRegistry.LAGGERITE_ORE, new Properties().tab(TROLL_ORES));
 	public static final RegistryObject<Item> DEEPSLATE_LAGGERITE_ORE = createItemBlock(BlockRegistry.DEEPSLATE_LAGGERITE_ORE, new Properties().tab(TROLL_ORES));
 
 	public static final RegistryObject<Item> DEEPSLATE_RANDONIUM_ORE = createItemBlock(BlockRegistry.DEEPSLATE_RANDOMIUM_ORE, new Properties().tab(TROLL_ORES));
