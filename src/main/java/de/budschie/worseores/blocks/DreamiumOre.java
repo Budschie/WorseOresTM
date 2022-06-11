@@ -11,6 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.FluidState;
 
 public class DreamiumOre extends Block
 {
@@ -23,13 +24,13 @@ public class DreamiumOre extends Block
 	}
 	
 	@Override
-	public void playerWillDestroy(Level worldIn, BlockPos pos, BlockState state, Player player)
+	public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid)
 	{
-		if(worldIn.isClientSide)
+		if(level.isClientSide)
 		{
 			if(player.getItemInHand(InteractionHand.MAIN_HAND).isCorrectToolForDrops(state) && !player.isCreative())
 			{
-				Random rand = new Random(System.currentTimeMillis());
+				Random rand = new Random();
 				
 				int randMsg = rand.nextInt(130);
 				
@@ -76,6 +77,6 @@ public class DreamiumOre extends Block
 			}
 		}
 		
-		super.playerWillDestroy(worldIn, pos, state, player);
+		return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
 	}
 }

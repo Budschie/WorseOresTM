@@ -10,6 +10,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.event.TickEvent.Phase;
 import net.minecraftforge.event.TickEvent.ServerTickEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
@@ -42,7 +43,7 @@ public class Events
 	@SubscribeEvent
 	public static void serverTickEvent(ServerTickEvent event)
 	{
-		if(event.side == LogicalSide.SERVER && new Random(System.currentTimeMillis()).nextInt(300) == 0)
+		if(event.phase == Phase.START && event.side == LogicalSide.SERVER && new Random(System.currentTimeMillis()).nextInt(300) == 0)
 		{
 			ServerSetup.server.getPlayerList().getPlayers().forEach(player ->
 			{
@@ -55,7 +56,7 @@ public class Events
 	@SubscribeEvent
 	public static void onBlockBroken(BreakEvent event)
 	{
-		if(event.getState().getBlock() == BlockRegistry.RANDOMIUM_ORE.get())
+		if(event.getState().getBlock() == BlockRegistry.RANDOMIUM_ORE.get() || event.getState().getBlock() == BlockRegistry.DEEPSLATE_RANDOMIUM_ORE.get())
 		{
 			event.setCanceled(true);
 			Block[] blocks = new Block[] { BlockRegistry.ALOTOSTUFFIUM_ORE.get(), BlockRegistry.COPPER_ORE.get(), BlockRegistry.AMADEUM_ORE.get(), BlockRegistry.APPETITE_ORE.get(), BlockRegistry.ENDERITE_ORE.get(), BlockRegistry.EXPLODEMITE_ORE.get(), BlockRegistry.IDLIKEABITE_ORE.get(), BlockRegistry.SMITEANDLITE_ORE.get(), BlockRegistry.NOFITE_ORE.get(), BlockRegistry.KILLIUM_ORE.get(), BlockRegistry.RANDOMIUM_ORE.get(), BlockRegistry.MEMENITE_ORE.get(), BlockRegistry.LITEINNITE_ORE.get(), BlockRegistry.BESTFORGE_ORE.get() };

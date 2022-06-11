@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
+import net.minecraft.world.level.material.FluidState;
 
 public class LaggeriteOre extends Block
 {
@@ -16,23 +17,22 @@ public class LaggeriteOre extends Block
 	}
 	
 	@Override
-	public void playerWillDestroy(Level worldIn, BlockPos pos, BlockState state, Player player)
+	public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid)
 	{
-		super.playerWillDestroy(worldIn, pos, state, player);
-		
-		if(player.isCreative())
-			return;
-		
-		try
+		if(!player.isCreative() && level.isClientSide())
 		{
-			if(worldIn.isClientSide)
+			try
+			{
 				Thread.sleep(5000);
-		} 
-		catch (InterruptedException e)
-		{
-			e.printStackTrace();
-			// We need to rethrow for proper error handling /s
-			throw new RuntimeException(e);
+			} 
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+				// We need to rethrow for proper error handling /s
+				throw new RuntimeException(e);
+			}
 		}
+
+		return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
 	}
 }

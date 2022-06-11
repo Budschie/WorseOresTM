@@ -17,6 +17,7 @@ public class BlockRegistry
 	public static final Properties DEFAULT_ORE_PROPERTIES_WITH_LIGHT = Properties.of(Material.STONE).strength(3, 120).requiresCorrectToolForDrops().sound(SoundType.STONE).lightLevel(imnotinerestedintheblockstate -> 15);
 	public static final Properties DEFAULT_ORE_WITH_ANVIL_PROPERTIES = Properties.of(Material.STONE).strength(3, 120).requiresCorrectToolForDrops().sound(SoundType.ANVIL);
 	public static final Properties FAST_SPEED_ORE_PROPERTIES = Properties.of(Material.STONE).strength(0, 0).requiresCorrectToolForDrops().sound(SoundType.STONE);
+	public static final Properties FAST_SPEED_ORE_NO_TOOLS_PROPERTIES = Properties.of(Material.STONE).strength(0, 0).sound(SoundType.STONE);
 	public static final Properties DEFAULT_SANDORE_PROPERTIES = Properties.of(Material.SAND).strength(.5f, 10).sound(SoundType.SAND);
 	public static final Properties DIAMOND_PROPERTIES = Properties.of(Material.STONE).sound(SoundType.DEEPSLATE).requiresCorrectToolForDrops().strength(3.0F, 3.0F);
 	public static final Properties DIAMOND_BLOCK_PROPERTIES = Properties.of(Material.METAL, MaterialColor.DIAMOND).requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL);
@@ -24,8 +25,8 @@ public class BlockRegistry
 	public static final DeferredRegister<Block> BLOCK_REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, References.MODID);
 
 	public static final RegistryObject<Block> COPPER_ORE = BLOCK_REGISTRY.register("copper_ore", () -> new Block(DEFAULT_ORE_PROPERTIES));
-	public static final RegistryObject<Block> ALOTOSTUFFIUM_ORE = BLOCK_REGISTRY.register("alotostuffium_ore", () -> new Block(FAST_SPEED_ORE_PROPERTIES));
-	public static final RegistryObject<Block> DEEPSLATE_ALOTOSTUFFIUM_ORE = BLOCK_REGISTRY.register("deepslate_alotostuffium_ore", () -> new Block(FAST_SPEED_ORE_PROPERTIES));
+	public static final RegistryObject<Block> ALOTOSTUFFIUM_ORE = BLOCK_REGISTRY.register("alotostuffium_ore", () -> new Block(FAST_SPEED_ORE_NO_TOOLS_PROPERTIES));
+	public static final RegistryObject<Block> DEEPSLATE_ALOTOSTUFFIUM_ORE = BLOCK_REGISTRY.register("deepslate_alotostuffium_ore", () -> new Block(FAST_SPEED_ORE_NO_TOOLS_PROPERTIES));
 	public static final RegistryObject<Block> COMPRESSED_ALOTOSTUFFIUM = BLOCK_REGISTRY.register("compressed_alotostuffium", () -> new Block(DEFAULT_ORE_PROPERTIES));
 	public static final RegistryObject<Block> AMADEUM_ORE = BLOCK_REGISTRY.register("amadeum_ore", () -> new AmadeumOre(DEFAULT_ORE_PROPERTIES));
 	public static final RegistryObject<Block> APPETITE_ORE = BLOCK_REGISTRY.register("appetite_ore", () -> new AppetiteOre(DEFAULT_SANDORE_PROPERTIES));

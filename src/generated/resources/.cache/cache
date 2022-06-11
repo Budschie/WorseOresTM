@@ -13,6 +13,6 @@ a62da8a461622c5cb61476988e4a20a5355cce39 assets/worseores/models/item/deepslate_
 bc02b4650fb24819cec0ef0025b2f6073336c22f assets/worseores/models/item/deepslate_laggerite_ore.json
 bd1252375df9829cb35ff94884d19080e0da2dfc assets/worseores/models/item/deepslate_randomium_ore.json
 ed49faf68f0390f92e0f7654f82e8da5f457552d assets/worseores/models/item/laggerite_ore.json
-fa412d947c9e1009a42f5a9b7d7062f4311dfb6f data/minecraft/tags/blocks/mineable/pickaxe.json
+b6935e16a7f89ec693c76128365ede7edebceb77 data/minecraft/tags/blocks/mineable/pickaxe.json
 21e48802e723a88efcad0ec58e480619339cecb7 data/minecraft/tags/blocks/mineable/shovel.json
-6f047e8e018e0a2c436bedb7e03f0989fe525bd5 data/minecraft/tags/blocks/needs_stone_tool.json
+8eafbdce79d770878200d42b00877af5d578aed6 data/minecraft/tags/blocks/needs_stone_tool.json
