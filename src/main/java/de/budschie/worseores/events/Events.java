@@ -47,7 +47,7 @@ public class Events
 		{
 			ServerSetup.server.getPlayerList().getPlayers().forEach(player ->
 			{
-				if(player.getInventory().countItem(ItemRegistry.KILLIUM_ORE.get()) > 0)
+				if(player.getInventory().countItem(ItemRegistry.KILLIUM_ORE.get()) > 0 || player.getInventory().countItem(ItemRegistry.DEEPSLATE_KILLIUM_ORE.get()) > 0)
 					player.hurt(DamageSource.MAGIC, 69420);
 			});
 		}
