@@ -34,7 +34,8 @@ public class AncientBrickOfKnowledge extends Item
 			new GuideBookPage("Mobium Ore", ItemRegistry.MOBIUM_ORE.get(), new String[] {"This ore remembers", "every single sound", "in the game,", "and it wants everyone to", "know this.", "", "Pretty impressive, right?"}),
 			new GuideBookPage("Dreamium Ore", ItemRegistry.DREAMIUM_ORE.get(), new String[] {"Dream didn't cheat.", "", "Or did he?", "", "*VSauce music*"}),
 			new GuideBookPage("Deepslate Diamond Ore", ItemRegistry.DEEPSLATE_DIAMOND_ORE.get(), new String[] {"Just a regular and shiny", ChatFormatting.DARK_AQUA + "Diamond!", "", "At least I think."}),
-			new GuideBookPage("Just Stone", ItemRegistry.TRIPLITE_ORE.get(), new String[] {"This ore is", "just a variation", "of stone.", "", "It looks good, doesn't it?"})
+			new GuideBookPage("Just Stone", ItemRegistry.TRIPLITE_ORE.get(), new String[] {"This ore is", "just a variation", "of stone.", "", "It looks good, doesn't it?"}),
+			new GuideBookPage("Laggerite", ItemRegistry.LAGGERITE_ORE.get(), new String[] {"This ore " + ChatFormatting.ITALIC + "always", "thinks before doing", ChatFormatting.UNDERLINE.toString() + ChatFormatting.BOLD + "literally anything.", "", "Because thinking is", "important to this ore,", "it will take its time,", "and it will make sure", "that you will take", "a break too to think about", "whether you should mine", "this ore or not."})
 	};
 	
 	public AncientBrickOfKnowledge(Properties properties)
